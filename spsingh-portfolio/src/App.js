@@ -1,10 +1,14 @@
 import React from 'react';
-import './App.css';
+import 'antd/dist/antd.css';
+import './App.scss';
+import HeaderComponent from './components/HeaderComponent';
+import HomeComponent from './components/HomeComponent';
 
 function App() {
   return (
     <div className="app">
-      Welcome home
+      <HeaderComponent />
+      <HomeComponent />
     </div>
   );
 }

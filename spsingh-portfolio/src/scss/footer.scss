@@ -1,0 +1,29 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background: #444e79;
+    color: #fff;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    .rights {
+        font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+        text-align: center;
+    }
+
+    .social-media {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .smitem {
+            width: 50px;
+            height: 50px;
+            padding: 5px;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

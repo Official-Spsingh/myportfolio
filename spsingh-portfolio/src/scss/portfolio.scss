@@ -1,0 +1,72 @@
+.portfolio {
+    .portfolio__header {
+        text-align: center;
+        color: #444e79;
+        font-family: Caveat;
+        font-size: 50px;
+        line-height: 55px;
+        font-weight: normal;
+        margin-bottom: 0px;
+        margin-top: 20px;
+        text-shadow: rgb(255, 255, 255) 0px 1px 1px;
+    }
+    .about {
+        padding: 10px 0px;
+        .about__img {
+            display: flex;
+            justify-content: center;
+            img {
+                width: 140px;
+                height: 140px;
+                margin: 0 auto;
+                border-radius: 50%;
+                display: block;
+            }
+        }
+        .about__para {
+            text-align: center;
+            padding: 10px 25px;
+            color: rgb(122, 124, 127);
+            font-size: 20px;
+            font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+            line-height: 35px;
+            text-shadow: rgb(255, 255, 255) 0px 1px 1px;
+            width: 80%;
+            margin: 0 auto;
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2px 20px;
+                border-color: #444e79;
+                border-radius: 5px;
+                text-transform: uppercase;
+                font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                color: #fff;
+                background-color: #444e79;
+                text-decoration: none;
+                width: 120px;
+                margin: 0 auto;
+                .anticon {
+                    padding: 0 6px;
+                }
+            }
+        }
+    }
+    .career {
+        width: 100%;
+        overflow: hidden;
+        padding: 20px;
+        .ant-timeline-item-content {
+            font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+            h3,h4{
+                font-weight: 600;
+            }
+            h3,h4,h5{
+                color: #444e79;
+            }
+        }
+    }
+}
