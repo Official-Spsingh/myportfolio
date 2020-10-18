@@ -1,11 +1,12 @@
 import React from 'react'
+import logo from '../../media/logo.png'
 
 const HeaderComponent = () => {
     return (
         <div className='header'>
             <div className="header__left">
                 <div className="header__logo">
-                    SPS
+                    <img src={logo} />
                 </div>
             </div>
             <div className="header__right">
