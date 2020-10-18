@@ -9,16 +9,24 @@ const FooterComponent = () => {
             </div>
             <div className="social-media">
                 <div className="smitem">
-                    <LinkedinOutlined />
+                    <a href="https://www.linkedin.com/in/shubhampratapsingh/" target="_blank" rel="noopener noreferrer">
+                        <LinkedinOutlined />
+                    </a>
                 </div>
                 <div className="smitem">
-                    <GithubOutlined />
+                    <a href="https://github.com/Official-Spsingh" target="_blank" rel="noopener noreferrer">
+                        <GithubOutlined />
+                    </a>
                 </div>
                 <div className="smitem">
-                    <InstagramOutlined />
+                    <a href="https://www.instagram.com/official_spsingh/" target="_blank" rel="noopener noreferrer">
+                        <InstagramOutlined />
+                    </a>
                 </div>
                 <div className="smitem">
-                    <FacebookOutlined />
+                    <a href="https://www.facebook.com/Shubham.rgibhopal" target="_blank" rel="noopener noreferrer">
+                        <FacebookOutlined />
+                    </a>
                 </div>
             </div>
         </div>

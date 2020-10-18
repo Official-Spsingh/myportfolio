@@ -11,19 +11,24 @@ const HeaderComponent = () => {
             <div className="header__right">
                 <div className="header__menu">
                     <div className="header__menuitem">
-                        Home
-                       </div>
-                    <div className="header__menuitem">
-                        About
+                        <a href="#home">
+                            Home
+                        </a>
                     </div>
                     <div className="header__menuitem">
-                        Career
-                       </div>
+                        <a href="#about">
+                            About
+                        </a>
+                    </div>
                     <div className="header__menuitem">
-                        Projects
-                     </div>
+                        <a href="#career">
+                            Career
+                        </a>
+                    </div>
                     <div className="header__menuitem">
-                        Contact
+                        <a href="#skills">
+                            Skills
+                        </a>
                     </div>
                 </div>
             </div>

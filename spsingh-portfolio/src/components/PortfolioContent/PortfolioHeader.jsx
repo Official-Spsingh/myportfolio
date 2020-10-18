@@ -1,8 +1,8 @@
 import React from 'react'
 
-const PortfolioHeader = ({title}) => {
+const PortfolioHeader = ({title,id}) => {
     return (
-        <div className='portfolio__header'>
+        <div className='portfolio__header' id={id}>
             {title}
         </div>
     )

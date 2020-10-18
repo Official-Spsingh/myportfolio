@@ -1,4 +1,6 @@
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;

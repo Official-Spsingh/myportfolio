@@ -48,7 +48,7 @@
                 background-color: #444e79;
                 text-decoration: none;
                 width: 120px;
-                margin: 0 auto;
+                margin: 8px auto;
                 .anticon {
                     padding: 0 6px;
                 }
@@ -61,11 +61,57 @@
         padding: 20px;
         .ant-timeline-item-content {
             font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
-            h3,h4{
+            h3,
+            h4 {
                 font-weight: 600;
             }
-            h3,h4,h5{
+            h3,
+            h4,
+            h5 {
                 color: #444e79;
+            }
+        }
+    }
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        .skills__box {
+            min-height: 200px;
+            background: #f0f0f0;
+            border-radius: 16px 16px 0 0;
+            color: #444e79;
+            min-width: 30%;
+            margin: 10px 1.66%;
+            &:hover {
+                transform: translateY(-8px);
+                transition: all 0.2s ease-out;
+            }
+            @media (max-width: 768px) {
+                width: 47%;
+                margin: 10px 1.5%;
+            }
+            @media (max-width: 450px) {
+                width: 90%;
+                margin: 10px 5%;
+            }
+            .skills__head {
+                font-size: 20px;
+                font-weight: 600;
+                text-align: center;
+                font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+                padding: 10px;
+                background: #444e79;
+                color: #fff;
+                border-radius: 16px 16px 0 0;
+            }
+            ul {
+                margin: 10px;
+                color: #444e79;
+                font-size: 18px;
+                li {
+                    list-style-type: circle;
+                    padding: 4px;
+                }
             }
         }
     }

@@ -4,7 +4,7 @@ import PortfolioContent from '../PortfolioContent'
 
 const HomeComponent = () => {
     return (
-        <div className='home'>
+        <div className='home' id='home'>
             <LandingComponent />
             <PortfolioContent />
         </div>

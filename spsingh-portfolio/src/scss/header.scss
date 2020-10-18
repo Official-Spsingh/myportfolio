@@ -26,6 +26,7 @@
         @media (max-width: 450px) {
             display: none;
         }
+        margin: 0 14px;
         .header__menu {
             display: flex;
             justify-content: space-evenly;
@@ -35,6 +36,9 @@
                 padding: 0 10px;
                 cursor: pointer;
                 font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+                a{
+                    color: inherit;
+                }
             }
         }
     }
