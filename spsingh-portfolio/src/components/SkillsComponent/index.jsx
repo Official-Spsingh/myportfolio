@@ -37,10 +37,10 @@ const SkillsComponent = () => {
             </div>
             <div className="skills__box">
                 <div className="skills__head">
-                    Compt. Programming
+                    Mobile App
                 </div>
                 <ul>
-                    <li>C Language</li>
+                    <li>React Native</li>
                 </ul>
             </div>
             <div className="skills__box">
