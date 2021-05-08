@@ -1,5 +1,5 @@
 .landing {
-    height: calc(100vh - 70px);
+    height: 100vh;
     background: url("../media/landingimg.webp");
     background-position: center;
     background-size: cover;
@@ -7,9 +7,9 @@
     .landing__data {
         color: #fff;
         text-align: center;
-        padding-top: 30vh;
+        padding-top: 40vh;
         @media (max-width: 500px) {
-            padding-top: 20vh;
+            padding-top: 30vh;
         }
         .landing__name {
             margin-bottom: 30px;

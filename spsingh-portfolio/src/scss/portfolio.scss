@@ -7,17 +7,16 @@
         line-height: 55px;
         font-weight: normal;
         margin-bottom: 0px;
-        margin-top: 20px;
         text-shadow: rgb(255, 255, 255) 0px 1px 1px;
+        margin-bottom: 12px;
     }
     .about {
-        padding: 10px 0px;
         .about__img {
             display: flex;
             justify-content: center;
             img {
-                width: 140px;
-                height: 140px;
+                width: 150px;
+                height: 150px;
                 margin: 0 auto;
                 border-radius: 50%;
                 display: block;
@@ -32,6 +31,9 @@
             line-height: 35px;
             text-shadow: rgb(255, 255, 255) 0px 1px 1px;
             width: 80%;
+            @media (max-width: 768px) {
+                width: 90%;
+            }
             margin: 0 auto;
             a {
                 display: flex;
@@ -58,7 +60,7 @@
     .career {
         width: 100%;
         overflow: hidden;
-        padding: 20px;
+        padding: 0 20px;
         .ant-timeline-item-content {
             font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
             h3,
@@ -70,6 +72,12 @@
             h5 {
                 color: #444e79;
             }
+        }
+        .ant-timeline-item-head {
+            background: #f3f4f8;
+        }
+        .ant-timeline-item-tail {
+            border-left: 1px dashed #494e7d;
         }
     }
     .skills {

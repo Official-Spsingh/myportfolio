@@ -2,7 +2,7 @@ import React from 'react'
 
 const SkillsComponent = () => {
     return (
-        <div className='skills' id='skills'>
+        <div className='skills'>
             <div className="skills__box">
                 <div className="skills__head">
                     Frontend
@@ -52,6 +52,7 @@ const SkillsComponent = () => {
                     <li>Firebase</li>
                     <li>Highchart</li>
                     <li>Cordova</li>
+                    <li>Expo</li>
                 </ul>
             </div>
             <div className="skills__box">

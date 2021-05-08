@@ -1,5 +1,5 @@
 import React from 'react'
-import aboutimg from '../../media/aboutimg.jpeg'
+import aboutimg from '../../media/aboutimg1.jpeg'
 import SpPdf from '../../media/sps.pdf'
 import { DownloadOutlined } from '@ant-design/icons';
 const AboutComponent = () => {

@@ -7,3 +7,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f3f4f8;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #444e79;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #444e79;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #444e79;
+  border-radius: 8px;
+  border: 3px solid #f3f4f8;
+  background-clip: content-box;
+}
+
