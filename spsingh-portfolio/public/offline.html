@@ -7,15 +7,60 @@
     <meta name="theme-color" content="#000000" />
     <title>Shubham Pratap Singh Portfolio</title>
     <style type="text/css">
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #444e79;
+            font-family: 'Courier New', Courier, monospace;
+        }
 
+        .offlineContainer {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: auto;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text1 {
+            font-size: 250%;
+            color: #fff;
+            padding: 16px;
+        }
+
+        .text2 {
+            font-size: 85%;
+            color: #fff;
+            padding: 16px;
+        }
     </style>
 </head>
 
 <body>
-    <div>
-        <h2>
-            <span>Hello you are offline</span>
-        </h2>
+    <div class="offlineContainer">
+        <div class="wrapper">
+            <div class="text2">
+                HEY STALKER, IT SEEMS LIKE YOU'RE
+            </div>
+            <div class="text1">
+                OFFLINE
+            </div>
+            <div class="text2">
+                PLEASE CHECK YOUR CONNECTION & TRY AGAIN
+            </div>
+        </div>
     </div>
 </body>
 
