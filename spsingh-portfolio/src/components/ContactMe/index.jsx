@@ -18,20 +18,27 @@ const ContactMe = () => {
             axios.post('https://spsinghapi.herokuapp.com/addData', obj).then(res => {
                 if (res.status == 200) {
                     message.success('Message sent successfully');
+                    setname('')
+                    setemail('')
+                    setmessage('')
+                    setloading(false)
                 }
                 else {
                     message.error('Sorry something went wrong');
+                    setname('')
+                    setemail('')
+                    setmessage('')
+                    setloading(false)
                 }
-                setloading(false)
-                setname('')
-                setemail('')
-                setmessage('')
+
             })
                 .catch(err => {
                     message.error('Sorry something went wrong');
+                    setname('')
+                    setemail('')
+                    setmessage('')
                     setloading(false)
                 })
-
         }
         else {
             message.warning('Please fill all the fields');
@@ -45,11 +52,11 @@ const ContactMe = () => {
                     <div className="wrap-input100 validate-input" data-validate="Please enter your name">
                         <input className="input100" type="text" name="name" placeholder="Full Name" onChange={(e) => setname(e.target.value)} value={name} />
                     </div>
-                    <div className="wrap-input100 validate-input" data-validate="Please enter your email: e@a.x" onChange={(e) => setemail(e.target.value)} value={email}>
-                        <input className="input100" type="text" name="email" placeholder="E-mail" />
+                    <div className="wrap-input100 validate-input" data-validate="Please enter your email: e@a.x">
+                        <input className="input100" type="text" name="email" placeholder="E-mail" onChange={(e) => setemail(e.target.value)} value={email} />
                     </div>
-                    <div className="wrap-input100 validate-input" data-validate="Please enter your message" onChange={(e) => setmessage(e.target.value)} value={msg}>
-                        <textarea className="input100" name="message" placeholder="Your Message"></textarea>
+                    <div className="wrap-input100 validate-input" data-validate="Please enter your message" >
+                        <textarea className="input100" name="message" placeholder="Wanna say something?" onChange={(e) => setmessage(e.target.value)} value={msg}></textarea>
                     </div>
                     <div className="container-contact100-form-btn">
                         <Button className="contact100-form-btn" loading={loading} onClick={sendMessage}>
