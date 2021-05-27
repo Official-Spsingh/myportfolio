@@ -1,6 +1,7 @@
 import React from 'react'
 import AboutComponent from '../AboutComponent'
 import CareerComponent from '../CareerComponent'
+import ContactMe from '../ContactMe'
 import FooterComponent from '../FooterComponent'
 import SkillsComponent from '../SkillsComponent'
 import PortfolioHeader from './PortfolioHeader'
@@ -19,6 +20,10 @@ const PortfolioContent = () => {
             <div id="skills" style={{ paddingTop: "75px" }}>
                 <PortfolioHeader title='Skills' />
                 <SkillsComponent />
+            </div>
+            <div id="contactme" style={{ paddingTop: "75px" }}>
+                <PortfolioHeader title='Contact Me' />
+                <ContactMe />
             </div>
             <FooterComponent />
         </div>

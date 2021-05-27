@@ -31,6 +31,11 @@ const HeaderComponent = () => {
                             Skills
                         </a>
                     </div>
+                    <div className="header__menuitem">
+                        <a href="#contactme">
+                            Contact
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
