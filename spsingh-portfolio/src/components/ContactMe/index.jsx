@@ -23,6 +23,9 @@ const ContactMe = () => {
                     message.error('Sorry something went wrong');
                 }
                 setloading(false)
+                setname('')
+                setemail('')
+                setmessage('')
             })
                 .catch(err => {
                     message.error('Sorry something went wrong');
