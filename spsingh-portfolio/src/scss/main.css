@@ -130,7 +130,7 @@ iframe {
   align-items: center;
   padding: 15px;
   position: relative;
-  background-color: #f2f2f2;
+  background-color: #f3f4f8;
 }
 
 .wrap-contact100 {
@@ -173,7 +173,7 @@ iframe {
   position: relative;
   display: block;
   width: 100%;
-  background: #fff;
+  background: #f0f0f0;
   border-radius: 31px;
   font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 18px;
