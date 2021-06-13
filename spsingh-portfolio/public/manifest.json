@@ -10,23 +10,18 @@
     {
       "src": "./images/logo3.png",
       "type": "image/png",
-      "sizes": "1024x1024"
+      "sizes": "1024x1024",
+      "purpose": "any maskable"
     },
     {
       "src": "./images/logo1.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
-      "src": "./images/logomask.png",
-      "type": "image/png",
-      "sizes": "384x384",
-      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#172c4b",
-  "background_color": "#172c4b",
+  "theme_color": "#1a1a1d",
+  "background_color": "#1a1a1d",
   "prefer_related_applications": false
 }

@@ -6,7 +6,7 @@
     position: fixed;
     width: 100%;
     top: 0;
-    background: #444e79;
+    background: #1a1a1d;
     color: #fff;
     box-sizing: border-box;
     z-index: 2;
@@ -36,7 +36,6 @@
             .header__menuitem {
                 padding: 0 10px;
                 cursor: pointer;
-                font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
                 a {
                     color: inherit;
                 }

@@ -3,12 +3,11 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    background: #444e79;
+    background: #1a1a1d;
     color: #fff;
     padding: 0px 10px;
     box-sizing: border-box;
     .rights {
-        font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
         text-align: center;
     }
 
@@ -25,7 +24,7 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            a{
+            a {
                 color: inherit;
             }
         }

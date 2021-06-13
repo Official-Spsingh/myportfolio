@@ -1,7 +1,7 @@
 .portfolio {
     .portfolio__header {
         text-align: center;
-        color: #444e79;
+        color: #fff;
         font-family: Caveat;
         font-size: 50px;
         line-height: 55px;
@@ -25,9 +25,8 @@
         .about__para {
             text-align: center;
             padding: 10px 25px;
-            color:  #444e79;
+            color: #fff;
             font-size: 20px;
-            font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
             line-height: 35px;
             text-shadow: rgb(255, 255, 255) 0px 1px 1px;
             width: 80%;
@@ -40,14 +39,14 @@
                 justify-content: center;
                 align-items: center;
                 padding: 8px 20px;
-                border-color: #444e79;
+                border-color: #cf6679;
                 border-radius: 5px;
                 text-transform: uppercase;
-                font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
                 font-size: 14px;
-                font-weight: 500;
+                font-weight: 400;
+                letter-spacing: 1px;
                 color: #fff;
-                background-color: #444e79;
+                background-color: #cf6679;
                 text-decoration: none;
                 width: 120px;
                 margin: 8px auto;
@@ -62,7 +61,6 @@
         overflow: hidden;
         padding: 0 20px;
         .ant-timeline-item-content {
-            font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
             h3,
             h4 {
                 font-weight: 600;
@@ -70,14 +68,17 @@
             h3,
             h4,
             h5 {
-                color: #444e79;
+                color: #fff;
             }
         }
         .ant-timeline-item-head {
-            background: #f3f4f8;
+            background: #1a1a1d;
+            .anticon svg {
+                color: #fff;
+            }
         }
         .ant-timeline-item-tail {
-            border-left: 1px dashed #494e7d;
+            border-left: 1px dashed #fff;
         }
     }
     .skills {
@@ -85,9 +86,9 @@
         flex-wrap: wrap;
         .skills__box {
             min-height: 200px;
-            background: #f0f0f0;
+            background: #1a1a1d;
             border-radius: 16px 16px 0 0;
-            color: #444e79;
+            color: #fff;
             min-width: 30%;
             margin: 10px 1.66%;
             &:hover {
@@ -106,16 +107,16 @@
                 font-size: 20px;
                 font-weight: 600;
                 text-align: center;
-                font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
                 padding: 10px;
-                background: #444e79;
+                background: #242425;
                 color: #fff;
                 border-radius: 16px 16px 0 0;
             }
             ul {
                 margin: 10px;
-                color: #444e79;
+                color: #1a1a1d;
                 font-size: 18px;
+                color: #fff;
                 li {
                     list-style-type: circle;
                     padding: 4px;

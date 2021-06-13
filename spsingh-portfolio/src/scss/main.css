@@ -1,5 +1,4 @@
 a {
-  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -29,7 +28,6 @@ h6 {
 }
 
 p {
-  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -130,13 +128,13 @@ iframe {
   align-items: center;
   padding: 15px;
   position: relative;
-  background-color: #f3f4f8;
+  background-color: #1a1a1d;
 }
 
 .wrap-contact100 {
   width: 550px;
   background: transparent;
-  padding: 50px 0px 160px 0px;
+  padding: 50px 0px 50px 0px;
 }
 
 /*==================================================================
@@ -148,7 +146,7 @@ iframe {
 
 .contact100-form-title {
   display: block;
-  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+
   font-size: 30px;
   color: #403866;
   line-height: 1.2;
@@ -162,7 +160,7 @@ iframe {
 
 .wrap-input100 {
   width: 100%;
-  background-color: #fff;
+  background-color: #242425;
   border-radius: 31px;
   margin-bottom: 16px;
   position: relative;
@@ -173,11 +171,10 @@ iframe {
   position: relative;
   display: block;
   width: 100%;
-  background: #f0f0f0;
+  background: #242425;
   border-radius: 31px;
-  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 18px;
-  color: #8f8fa1;
+  color: #fff;
   line-height: 1.2;
 }
 
@@ -185,11 +182,15 @@ iframe {
 input.input100 {
   height: 62px;
   padding: 0 35px 0 35px;
+  background: #242425;
+  color: #fff;
 }
 
 textarea.input100 {
   min-height: 169px;
   padding: 19px 35px 0 35px;
+  background: #242425;
+  color: #fff;
 }
 
 /*------------------------------------------------------------------
@@ -246,10 +247,10 @@ textarea.input100 {
   padding: 0 20px;
   min-width: 150px;
   height: 62px;
-  background-color: #444e79;
+  background-color: #cf6679;
   border-radius: 31px;
+  border-color: #cf6679;
 
-  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 16px;
   color: #fff;
   line-height: 1.2;
@@ -266,7 +267,7 @@ textarea.input100 {
 .contact100-form-btn:hover,
 .contact100-form-btn:active,
 .contact100-form-btn:focus {
-  background-color: #444e79;
+  background-color: #cf6679;
   color: #fff;
   border: 0;
 }
@@ -296,7 +297,6 @@ textarea.input100 {
   right: 10px;
   pointer-events: none;
 
-  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;

@@ -3,7 +3,6 @@ html {
 }
 body {
   margin: 0;
-  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -11,19 +10,19 @@ body {
   width: 15px;
 }
 ::-webkit-scrollbar-track {
-  background-color: #f3f4f8;
+  background-color: #242425;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #444e79;
+  background-color: #cf6679;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #444e79;
+  background-color: #cf6679;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #444e79;
+  background-color: #cf6679;
   border-radius: 8px;
-  border: 3px solid #f3f4f8;
+  border: 3px solid #242425;
   background-clip: content-box;
 }
 

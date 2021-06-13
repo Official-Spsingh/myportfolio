@@ -6,7 +6,7 @@ const HeaderComponent = () => {
         <div className='header'>
             <div className="header__left">
                 <div className="header__logo">
-                    <img src={logo} alt="spsingh logo" />
+                    <img src={logo} alt="spsingh logo" width="initial" height="initial" />
                 </div>
             </div>
             <div className="header__right">
