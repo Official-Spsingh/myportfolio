@@ -52,6 +52,9 @@
                 .anticon {
                     padding: 0 6px;
                 }
+                &:hover {
+                    box-shadow: 0 5px 15px #cf66797d;
+                }
             }
         }
     }

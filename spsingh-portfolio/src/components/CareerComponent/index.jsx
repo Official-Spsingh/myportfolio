@@ -6,7 +6,10 @@ const CareerComponent = () => {
         <div className='career'>
             <Timeline mode="alternate">
                 <Timeline.Item dot={<DesktopOutlined />} color="#444e79">
-                    <h3>Associate Software Engineer</h3><h4>Netlink Software Pvt. Ltd.</h4><h4>Full Stack Development</h4><h5>Aug 2019 - Present</h5>
+                    <h3>Software Engineer</h3><h4>Netlink Software Pvt. Ltd.</h4><h4>Full Stack Development</h4><h5>Apr 2021 - Present</h5>
+                </Timeline.Item>
+                <Timeline.Item dot={<DesktopOutlined />} color="#444e79">
+                    <h3>Associate Software Engineer</h3><h4>Netlink Software Pvt. Ltd.</h4><h4>Full Stack Development</h4><h5>Aug 2019 - March 2021</h5>
                 </Timeline.Item>
                 <Timeline.Item dot={<DesktopOutlined />} color="#444e79">
                     <h3>Internship</h3><h4>Netlink Software Pvt. Ltd.</h4><h4>Full Stack Development</h4><h5>Jan 2019 - July 2019</h5>
