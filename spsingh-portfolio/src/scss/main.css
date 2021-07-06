@@ -204,9 +204,9 @@ textarea.input100 {
   padding: 0 20px;
   min-width: 150px;
   height: 62px;
-  background-color: #cf6679;
+  background-color: #045a4f;
   border-radius: 31px;
-  border-color: #cf6679;
+  border-color: #045a4f;
 
   font-size: 16px;
   color: #fff;
@@ -224,8 +224,8 @@ textarea.input100 {
 .contact100-form-btn:hover,
 .contact100-form-btn:active,
 .contact100-form-btn:focus {
-  background-color: #cf6679;
+  background-color: #045a4f;
   color: #fff;
   border: 0;
-  box-shadow: 0 5px 15px #cf66797d;
+  box-shadow: 0 5px 15px #045a4f7d;
 }
