@@ -1,5 +1,5 @@
 import React from 'react'
-import { LinkedinOutlined, GithubOutlined, InstagramOutlined, FacebookOutlined } from '@ant-design/icons';
+import { LinkedinOutlined, GithubOutlined, InstagramOutlined, YoutubeOutlined } from '@ant-design/icons';
 
 const FooterComponent = () => {
     return (
@@ -19,13 +19,13 @@ const FooterComponent = () => {
                     </a>
                 </div>
                 <div className="smitem">
-                    <a href="https://www.instagram.com/official_spsingh/" target="_blank" rel="noopener noreferrer">
-                        <InstagramOutlined />
+                    <a href="https://www.youtube.com/channel/UCmouOiVcog-OmL999zHUhvg" target="_blank" rel="noopener noreferrer">
+                        <YoutubeOutlined />
                     </a>
                 </div>
                 <div className="smitem">
-                    <a href="https://www.facebook.com/Shubham.rgibhopal" target="_blank" rel="noopener noreferrer">
-                        <FacebookOutlined />
+                    <a href="https://www.instagram.com/official_spsingh/" target="_blank" rel="noopener noreferrer">
+                        <InstagramOutlined />
                     </a>
                 </div>
             </div>
