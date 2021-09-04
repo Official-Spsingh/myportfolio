@@ -12,6 +12,7 @@ const SkillsComponent = () => {
                     <li>CSS</li>
                     <li>Javascript</li>
                     <li>ReactJS</li>
+                    <li>React Native</li>
                     <li>Redux</li>
                 </ul>
             </div>
@@ -37,10 +38,12 @@ const SkillsComponent = () => {
             </div>
             <div className="skills__box">
                 <div className="skills__head">
-                    Mobile App
+                     Compt. Programming
                 </div>
                 <ul>
-                    <li>React Native</li>
+                    <li>C Language</li>
+                    <li>Data structure</li>
+                    <li>Algorithms</li>
                 </ul>
             </div>
             <div className="skills__box">

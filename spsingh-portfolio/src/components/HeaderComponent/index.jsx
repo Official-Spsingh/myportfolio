@@ -32,6 +32,11 @@ const HeaderComponent = () => {
                         </a>
                     </div>
                     <div className="header__menuitem">
+                        <a href="#projects">
+                            Projects
+                        </a>
+                    </div>
+                    <div className="header__menuitem">
                         <a href="#contactme">
                             Contact
                         </a>
