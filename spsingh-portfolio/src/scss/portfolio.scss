@@ -173,6 +173,8 @@
     .card-container {
         width: 23%;
         margin: 0 1%;
+        background: #1a1a1d;
+        border-radius: 16px;
         @media (max-width: 768px) {
             width: 47%;
             margin: 10px 1.5%;
@@ -181,9 +183,28 @@
             width: 90%;
             margin: 10px 5%;
         }
+        .ant-card,
+        .ant-card-bordered {
+            border: 1px solid #242425;
+            background: #1a1a1d;
+            border-radius: 16px;
+            .ant-card-body {
+                background: #1a1a1d;
+                .ant-card-meta-title {
+                    color: #fff;
+                }
+                .ant-card-meta-description {
+                    display: flex;
+                }
+            }
+        }
     }
     a {
-        color: #045a4f;
+        color: #fff;
         font-weight: 600;
+        list-style-type: none;
+        padding: 2px 14px;
+        background: #045a4f;
+        border-radius: 14px;
     }
 }
