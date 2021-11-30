@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card } from 'antd';
-import githublogo from '../../media/githublogo.png'
+import githublogo from '../../media/githublogo1.png'
 import {
     LinkOutlined
 } from '@ant-design/icons';
