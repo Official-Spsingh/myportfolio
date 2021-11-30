@@ -188,6 +188,13 @@
             border: 1px solid #242425;
             background: #1a1a1d;
             border-radius: 16px;
+            .ant-card-cover {
+                img {
+                    border-radius: 2px 2px 0 0;
+                    margin: 8px auto;
+                    max-width: 80%;
+                }
+            }
             .ant-card-body {
                 background: #1a1a1d;
                 border-radius: 16px;
