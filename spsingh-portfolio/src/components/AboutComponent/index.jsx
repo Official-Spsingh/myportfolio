@@ -9,9 +9,7 @@ const AboutComponent = () => {
                 <img src={aboutimg} alt='spsingh' />
             </div>
             <div className="about__para">
-                Full stack engineer having grasp knowledge and experience on MERN stack.
-                I am comfortable with a lot of web technologies & frameworks and would love to work in a very dynamic & aspirational environment.
-                I like to know about new technologies and I feel this is the way of making oneself sustainable. I like writing blogs and like using new tools which makes life easier.
+                Full Stack Engineer and Technical Lead with 6+ years of experience specializing in the MERN stack. Skilled in React.js, Node.js, JavaScript, and modern web technologies. Proven expertise in designing scalable architectures, leading teams, and building high-performance micro-frontend applications.
 
                 <a href={SpPdf} download='Shubham Pratap Singh Resume'>
                     <DownloadOutlined />Resume</a>

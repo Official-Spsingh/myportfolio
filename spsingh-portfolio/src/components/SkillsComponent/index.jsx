@@ -12,6 +12,7 @@ const SkillsComponent = () => {
                     <li>CSS</li>
                     <li>Javascript</li>
                     <li>ReactJS</li>
+                    <li>NextJS</li>
                     <li>React Native</li>
                     <li>Redux</li>
                 </ul>
@@ -24,7 +25,6 @@ const SkillsComponent = () => {
                     <li>NodeJS</li>
                     <li>ExpressJS</li>
                     <li>Java</li>
-                    <li>Springboot</li>
                 </ul>
             </div>
             <div className="skills__box">
@@ -38,12 +38,11 @@ const SkillsComponent = () => {
             </div>
             <div className="skills__box">
                 <div className="skills__head">
-                     Compt. Programming
+                    Architecture
                 </div>
                 <ul>
-                    <li>C Language</li>
-                    <li>Data structure</li>
-                    <li>Algorithms</li>
+                    <li>System Design</li>
+                    <li>Micro frontend</li>
                 </ul>
             </div>
             <div className="skills__box">
@@ -51,11 +50,17 @@ const SkillsComponent = () => {
                     Others
                 </div>
                 <ul>
+                    <li>C Language</li>
+                    <li>Data structure</li>
+                    <li>Algorithms</li>
                     <li>Git</li>
                     <li>Firebase</li>
                     <li>Highchart</li>
-                    <li>Cordova</li>
-                    <li>Expo</li>
+                    <li>AG Grid</li>
+                    <li>Leaflet</li>
+                    <li>Azure</li>
+                    <li>Docker</li>
+                    <li>Kubernetes</li>
                 </ul>
             </div>
             <div className="skills__box">
