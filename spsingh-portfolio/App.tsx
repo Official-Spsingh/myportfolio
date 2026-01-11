@@ -127,7 +127,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-indigo-500/30">
+    <div className="min-h-screen bg-black text-slate-200 selection:bg-indigo-500/30">
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50 py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex items-center justify-between">
@@ -435,7 +435,7 @@ const App: React.FC = () => {
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6">Built to <span className="text-cyan-400">Scale</span></h2>
                 <p className="text-slate-400 max-w-xl text-base md:text-lg leading-relaxed font-medium italic">"A curated collection of projects where architecture meets performance and design."</p>
               </div>
-              <a href="https://github.com/Official-Spsingh?tab=repositories" className="flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 font-black border-b-2 border-indigo-400/20 pb-2 transition-all group">
+              <a href="https://github.com/Official-Spsingh?tab=repositories" target="_blank" className="flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 font-black border-b-2 border-indigo-400/20 pb-2 transition-all group">
                 <span>Explore Ecosystem</span>
                 <ExternalLink size={20} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
               </a>
@@ -459,7 +459,7 @@ const App: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[2px] flex items-center justify-center p-8">
                       <a href={project.link} target="_blank" className="px-6 py-3 bg-white text-slate-950 rounded-xl font-bold flex items-center space-x-2 transform translate-y-4 group-hover:translate-y-0 transition-all">
-                        <span>Explore Code</span>
+                        <span>Explore</span>
                         <ExternalLink size={18} />
                       </a>
                     </div>
@@ -475,7 +475,7 @@ const App: React.FC = () => {
                     <h3 className="text-2xl md:text-3xl font-black mb-3 md:mb-4 group-hover:text-indigo-400 transition-colors tracking-tight">{project.title}</h3>
                     <p className="text-sm md:text-base text-slate-400 leading-relaxed mb-8 flex-1">{project.description}</p>
                     <a href={project.link} target="_blank" className="flex items-center space-x-3 text-xs md:text-sm font-black text-slate-300 hover:text-white transition-all group/link uppercase tracking-widest">
-                      <span>Documentation</span>
+                      <span>Explore</span>
                       <ChevronRight size={18} className="group-hover/link:translate-x-2 transition-transform text-indigo-500" />
                     </a>
                   </div>
@@ -570,7 +570,7 @@ const App: React.FC = () => {
               <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-2xl md:text-3xl font-black tracking-tighter hover:text-indigo-400 transition-colors">
                 <span className="text-indigo-500">sp</span>singh<span className="text-indigo-500">.</span>
               </a>
-              <p className="text-slate-500 text-[10px] md:text-sm font-bold max-w-xs text-center md:text-left uppercase tracking-widest">Architecting High Performance Systems since 2019.</p>
+              <p className="text-slate-500 text-[10px] md:text-sm font-bold max-w-xs text-center md:text-left uppercase tracking-widest">Architecting High Performance Systems.</p>
             </div>
 
             <div className="flex flex-col items-center gap-6">
