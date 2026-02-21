@@ -142,7 +142,7 @@ const App: React.FC = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-medium text-zinc-500 hover:text-white transition-colors uppercase tracking-widest"
+                className="text-sm font-medium text-zinc-400 hover:text-white transition-colors uppercase tracking-widest"
               >
                 {link.name}
               </a>
@@ -180,7 +180,7 @@ const App: React.FC = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-3xl font-bold text-zinc-500 hover:text-white transition-all transform hover:scale-110"
+                  className="text-3xl font-bold text-zinc-400 hover:text-white transition-all transform hover:scale-110"
                   onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.name}
@@ -219,7 +219,7 @@ const App: React.FC = () => {
                 Shubham <br className="hidden sm:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D97767] via-[#B5935B] to-[#D97767] drop-shadow-[0_0_30px_rgba(255,111,97,0.2)]">Pratap Singh</span>
               </h1>
-              <p className="text-lg md:text-xl text-zinc-500 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-zinc-400 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
                 6+ years of mastery in MERN Stack. Architecting scalable digital ecosystems and leading high-performance engineering teams.
               </p>
 
@@ -235,7 +235,7 @@ const App: React.FC = () => {
               </div>
 
               <div className="flex items-center justify-center lg:justify-start space-x-3 sm:space-x-4">
-                <span className="hidden sm:inline-block text-sm font-bold text-zinc-600 uppercase tracking-widest mr-2">Follow Me</span>
+                <span className="hidden sm:inline-block text-sm font-bold text-zinc-500 uppercase tracking-widest mr-2">Follow Me</span>
                 <SocialIcon href={SOCIAL_LINKS.linkedin} label="LinkedIn"><LinkedInIcon /></SocialIcon>
                 <SocialIcon href={SOCIAL_LINKS.github} label="GitHub"><GithubIcon /></SocialIcon>
                 <SocialIcon href={SOCIAL_LINKS.youtube} label="YouTube"><YoutubeIcon /></SocialIcon>
@@ -256,6 +256,10 @@ const App: React.FC = () => {
                   <img
                     src={PROFILE_IMAGE}
                     alt="Shubham Pratap Singh"
+                    width="450"
+                    height="450"
+                    decoding="async"
+                    loading="eager"
                     className="w-full h-full object-cover transition-all duration-700 hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-[#D97767]/10 mix-blend-overlay"></div>
@@ -295,19 +299,19 @@ const App: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="text-zinc-500 font-bold uppercase text-xs tracking-widest mb-3">Location</h4>
+                    <h3 className="text-zinc-400 font-bold uppercase text-xs tracking-widest mb-3">Location</h3>
                     <p className="text-lg font-bold">Bhopal, India</p>
                   </div>
                   <div>
-                    <h4 className="text-zinc-500 font-bold uppercase text-xs tracking-widest mb-3">Specialty</h4>
+                    <h3 className="text-zinc-400 font-bold uppercase text-xs tracking-widest mb-3">Specialty</h3>
                     <p className="text-lg font-bold">MERN Stack & Micro Frontends</p>
                   </div>
                   <div>
-                    <h4 className="text-zinc-500 font-bold uppercase text-xs tracking-widest mb-3">Leadership</h4>
+                    <h3 className="text-zinc-400 font-bold uppercase text-xs tracking-widest mb-3">Leadership</h3>
                     <p className="text-lg font-bold">Technical Team Lead</p>
                   </div>
                   <div>
-                    <h4 className="text-zinc-500 font-bold uppercase text-xs tracking-widest mb-3">Interests</h4>
+                    <h3 className="text-zinc-400 font-bold uppercase text-xs tracking-widest mb-3">Interests</h3>
                     <p className="text-lg font-bold">System Design & AI</p>
                   </div>
                 </div>
@@ -316,11 +320,11 @@ const App: React.FC = () => {
               <div className="lg:col-span-2 space-y-6">
                 <div className="p-6 md:p-8 bg-[#1a1a1a]/60 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/5 hover:border-[#D97767]/30 transition-all shadow-2xl">
                   <div className="text-4xl md:text-5xl font-black text-[#D97767] mb-2 drop-shadow-[0_0_15px_rgba(255,111,97,0.3)]">6+</div>
-                  <div className="text-xs md:text-sm font-bold text-zinc-500 uppercase tracking-widest">Years of Excellence</div>
+                  <div className="text-xs md:text-sm font-bold text-zinc-400 uppercase tracking-widest">Years of Excellence</div>
                 </div>
                 <div className="p-6 md:p-8 bg-[#1a1a1a]/60 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/5 hover:border-[#B5935B]/30 transition-all shadow-2xl">
                   <div className="text-4xl md:text-5xl font-black text-[#B5935B] mb-2 drop-shadow-[0_0_15px_rgba(218,165,32,0.3)]">2+</div>
-                  <div className="text-xs md:text-sm font-bold text-zinc-500 uppercase tracking-widest">Enterprise-grade, AI Driven Products</div>
+                  <div className="text-xs md:text-sm font-bold text-zinc-400 uppercase tracking-widest">Enterprise-grade, AI Driven Products</div>
                 </div>
               </div>
             </motion.div>
@@ -352,8 +356,8 @@ const App: React.FC = () => {
                       <div className="absolute -left-[37px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-[#0A0A0A] border border-[#3d3d3d] group-hover:border-[#D97767] transition-colors"></div>
                       <div className="inline-block px-3 py-1 rounded bg-[#D97767]/10 text-[#D97767] text-xs font-mono font-bold mb-3">{exp.period}</div>
                       <h4 className="text-xl md:text-2xl font-bold text-[#F5E8D8] mb-1">{exp.role}</h4>
-                      <div className="text-base md:text-lg text-zinc-500 font-medium mb-2">{exp.company}</div>
-                      <p className="text-xs md:text-sm text-zinc-600 uppercase tracking-widest font-bold">{exp.department}</p>
+                      <div className="text-base md:text-lg text-zinc-400 font-medium mb-2">{exp.company}</div>
+                      <p className="text-xs md:text-sm text-zinc-500 uppercase tracking-widest font-bold">{exp.department}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -380,8 +384,8 @@ const App: React.FC = () => {
                       <div className="absolute -left-[37px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-[#0A0A0A] border border-[#3d3d3d] group-hover:border-[#B5935B] transition-colors"></div>
                       <div className="inline-block px-3 py-1 rounded bg-[#B5935B]/5 text-[#B5935B] text-xs font-mono font-bold mb-3">{edu.period}</div>
                       <h4 className="text-lg md:text-xl font-bold text-[#F5E8D8] mb-1">{edu.degree}</h4>
-                      <div className="text-zinc-500 mb-1 text-sm md:text-base">{edu.institution}</div>
-                      <div className="text-xs md:text-sm text-zinc-600 mb-3">{edu.location}</div>
+                      <div className="text-zinc-400 mb-1 text-sm md:text-base">{edu.institution}</div>
+                      <div className="text-xs md:text-sm text-zinc-500 mb-3">{edu.location}</div>
                       <div className="text-sm font-black text-[#D97767]">{edu.score}</div>
                     </motion.div>
                   ))}
@@ -396,7 +400,7 @@ const App: React.FC = () => {
           <div className="container mx-auto">
             <div className="text-center mb-12 md:mb-20">
               <h2 className="text-3xl md:text-4xl font-black mb-4">The <span className="text-[#D97767]">Tech Stack</span></h2>
-              <p className="text-zinc-500 font-bold uppercase tracking-widest text-xs">Skills categorized by domain expertise</p>
+              <p className="text-zinc-400 font-bold uppercase tracking-widest text-xs">Skills categorized by domain expertise</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -432,7 +436,7 @@ const App: React.FC = () => {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
               <div>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6">Built to <span className="text-[#D97767]">Scale</span></h2>
-                <p className="text-zinc-500 max-w-xl text-base md:text-lg leading-relaxed font-medium italic">"A curated collection of projects where architecture meets performance and design."</p>
+                <p className="text-zinc-400 max-w-xl text-base md:text-lg leading-relaxed font-medium italic">"A curated collection of projects where architecture meets performance and design."</p>
               </div>
               <a href="https://github.com/Official-Spsingh?tab=repositories" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-[#D97767] hover:text-[#BC5D4E] font-black border-b border-[#D97767]/20 pb-2 transition-all group">
                 <span>Explore Ecosystem</span>
@@ -454,6 +458,10 @@ const App: React.FC = () => {
                     <img
                       src={project.image}
                       alt={project.title}
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-[#0A0A0A]/60 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm flex items-center justify-center p-8">
@@ -472,7 +480,7 @@ const App: React.FC = () => {
                       ))}
                     </div>
                     <h3 className="text-2xl md:text-3xl font-black mb-3 md:mb-4 group-hover:text-[#D97767] transition-colors tracking-tight">{project.title}</h3>
-                    <p className="text-sm md:text-base text-zinc-500 leading-relaxed mb-8 flex-1">{project.description}</p>
+                    <p className="text-sm md:text-base text-zinc-400 leading-relaxed mb-8 flex-1">{project.description}</p>
                     <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-xs md:text-sm font-black text-zinc-400 hover:text-[#F5E8D8] transition-all group/link uppercase tracking-widest">
                       <span>Explore</span>
                       <ChevronRight size={18} className="group-hover/link:translate-x-2 transition-transform text-[#D97767]" />
@@ -501,7 +509,7 @@ const App: React.FC = () => {
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                   <div className="z-10 text-center lg:text-left">
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-none">Let's <br /><span className="text-[#B5935B]">Connect.</span></h2>
-                    <p className="text-zinc-500 text-lg md:text-xl mb-10 leading-relaxed font-medium max-w-lg mx-auto lg:mx-0">
+                    <p className="text-zinc-400 text-lg md:text-xl mb-10 leading-relaxed font-medium max-w-lg mx-auto lg:mx-0">
                       Discussing product engineering, high-performance web systems, or leadership opportunities? Drop a message.
                     </p>
 
@@ -527,7 +535,7 @@ const App: React.FC = () => {
                     </div>
 
                     <div className="mt-12 md:mt-16 text-center lg:text-left">
-                      <div className="text-[10px] uppercase tracking-[0.3em] text-zinc-600 font-black mb-6">Social Footprint</div>
+                      <div className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-black mb-6">Social Footprint</div>
                       <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 sm:scale-110 sm:origin-left">
                         <SocialIcon href={SOCIAL_LINKS.linkedin} label="LinkedIn"><LinkedInIcon /></SocialIcon>
                         <SocialIcon href={SOCIAL_LINKS.github} label="GitHub"><GithubIcon /></SocialIcon>
@@ -541,16 +549,16 @@ const App: React.FC = () => {
                     <form className="space-y-6 sm:space-y-8 bg-[#1a1a1a]/50 p-6 sm:p-10 md:p-12 rounded-2xl sm:rounded-[2.5rem] border border-[#D97767]/30 backdrop-blur-sm shadow-xl" onSubmit={(e) => e.preventDefault()}>
                       <div className="space-y-5 sm:space-y-6">
                         <div className="relative group/input">
-                          <label className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">Full Name</label>
-                          <input value={name} onChange={(e: any) => setname(e.target.value)} type="text" className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold" placeholder="Shubham Pratap Singh" />
+                          <label htmlFor="fullname" className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">Full Name</label>
+                          <input id="fullname" value={name} onChange={(e: any) => setname(e.target.value)} type="text" className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold" placeholder="Shubham Pratap Singh" />
                         </div>
                         <div className="relative group/input">
-                          <label className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">E-mail</label>
-                          <input value={email} onChange={(e: any) => setemail(e.target.value)} type="email" className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold" placeholder="shubham@example.com" />
+                          <label htmlFor="email" className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">E-mail</label>
+                          <input id="email" value={email} onChange={(e: any) => setemail(e.target.value)} type="email" className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold" placeholder="shubham@example.com" />
                         </div>
                         <div className="relative group/input">
-                          <label className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">Message</label>
-                          <textarea value={msg} onChange={(e: any) => setmessage(e.target.value)} className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold min-h-[120px] sm:min-h-[160px] resize-none" placeholder="Let's build something epic..."></textarea>
+                          <label htmlFor="message" className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">Message</label>
+                          <textarea id="message" value={msg} onChange={(e: any) => setmessage(e.target.value)} className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold min-h-[120px] sm:min-h-[160px] resize-none" placeholder="Let's build something epic..."></textarea>
                         </div>
                       </div>
                       <button onClick={(loading || sent) ? () => { } : sendMessage} type="submit" className="w-full py-4 sm:py-5 bg-[#D97767] hover:bg-[#BC5D4E] text-white font-black rounded-xl sm:rounded-2xl flex items-center justify-center space-x-3 transition-all active:scale-[0.98] shadow-2xl shadow-[#D97767]/20 uppercase tracking-[0.2em] text-xs sm:text-sm">
@@ -574,7 +582,7 @@ const App: React.FC = () => {
               <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-2xl md:text-3xl font-black tracking-tighter hover:text-[#D97767] transition-colors">
                 <span className="text-[#D97767]">sp</span>singh<span className="text-[#B5935B]">.</span>
               </a>
-              <p className="text-zinc-600 text-[10px] md:text-sm font-bold max-w-xs text-center md:text-left uppercase tracking-widest">Architecting High Performance Systems.</p>
+              <p className="text-zinc-500 text-[10px] md:text-sm font-bold max-w-xs text-center md:text-left uppercase tracking-widest">Architecting High Performance Systems.</p>
             </div>
 
             <div className="flex flex-col items-center gap-6">
@@ -591,8 +599,8 @@ const App: React.FC = () => {
             </div>
 
             <div className="flex flex-col items-center md:items-end gap-2 text-center md:text-right">
-              <div className="text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-zinc-700">&copy; {new Date().getFullYear()} SPSINGH</div>
-              <div className="flex items-center space-x-2 text-zinc-500 text-xs md:text-sm font-bold">
+              <div className="text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-zinc-500">&copy; {new Date().getFullYear()} SPSINGH</div>
+              <div className="flex items-center space-x-2 text-zinc-400 text-xs md:text-sm font-bold">
                 <span>Handcrafted with</span>
                 <Heart size={16} className="text-[#D97767] fill-[#D97767] animate-pulse" />
                 <span>by Shubham</span>

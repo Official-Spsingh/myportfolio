@@ -66,7 +66,7 @@ const AIChat: React.FC = () => {
                 <p className="text-[10px] text-[#B5935B] font-mono">Powered by Gemini</p>
               </div>
             </div>
-            <button onClick={() => setIsOpen(false)} className="text-zinc-500 hover:text-zinc-300">
+            <button onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-zinc-200" aria-label="Close Chat">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -109,6 +109,7 @@ const AIChat: React.FC = () => {
               <button
                 onClick={handleSend}
                 disabled={isLoading}
+                aria-label="Send Message"
                 className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-[#D97767] hover:text-[#BC5D4E] disabled:opacity-50"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -123,6 +124,7 @@ const AIChat: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Close AI Assistant" : "Open AI Assistant"}
         className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110 active:scale-90 ${isOpen ? 'bg-[#2a2a2a] text-zinc-400' : 'bg-[#D97767] text-white shadow-[#D97767]/20'}`}
       >
         {isOpen ? (
