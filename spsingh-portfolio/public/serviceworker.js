@@ -1,5 +1,8 @@
-const CACHE_NAME = "version-1";
-const urlsToCache = ['/', '/index.html', '/offline.html', '/media/logo.png'];
+const CACHE_NAME = "version-4";
+const urlsToCache = [
+    '/offline.html',
+    '/media/logo.png'
+];
 
 // Install SW
 self.addEventListener('install', (event) => {
@@ -9,26 +12,30 @@ self.addEventListener('install', (event) => {
                 console.log('Opened cache');
                 return cache.addAll(urlsToCache);
             })
+            .then(() => self.skipWaiting())
     )
 });
 
 // Listen for requests
 self.addEventListener('fetch', (event) => {
+    if (event.request.method !== 'GET') return;
+
     event.respondWith(
         fetch(event.request)
             .catch(() => {
-                return caches.match(event.request)
-                    .then((match) => {
-                        if (match) return match;
-                        if (event.request.mode === 'navigate') {
-                            return caches.match('/offline.html');
-                        }
-                    })
+                // If network fails
+                if (event.request.mode === 'navigate') {
+                    // Always show offline page for navigation failures
+                    return caches.match('/offline.html');
+                }
+
+                // For other assets (images, etc), try to find them in cache
+                return caches.match(event.request);
             })
-    )
+    );
 });
 
-// Activate the SW
+// Activate - Cleanup old caches
 self.addEventListener('activate', (event) => {
     const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
@@ -38,6 +45,6 @@ self.addEventListener('activate', (event) => {
                     return caches.delete(cacheName);
                 }
             })
-        ))
+        )).then(() => self.clients.claim())
     )
 });
