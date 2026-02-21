@@ -1,7 +1,5 @@
 const CACHE_NAME = "version-1";
-const urlsToCache = [ 'index.html', 'offline.html' ];
-
-const self = this;
+const urlsToCache = ['/', '/index.html', '/offline.html', '/media/logo.png'];
 
 // Install SW
 self.addEventListener('install', (event) => {
@@ -9,7 +7,6 @@ self.addEventListener('install', (event) => {
         caches.open(CACHE_NAME)
             .then((cache) => {
                 console.log('Opened cache');
-
                 return cache.addAll(urlsToCache);
             })
     )
@@ -18,27 +15,29 @@ self.addEventListener('install', (event) => {
 // Listen for requests
 self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request)
-            .then(() => {
-                return fetch(event.request) 
-                    .catch(() => caches.match('offline.html'))
+        fetch(event.request)
+            .catch(() => {
+                return caches.match(event.request)
+                    .then((match) => {
+                        if (match) return match;
+                        if (event.request.mode === 'navigate') {
+                            return caches.match('/offline.html');
+                        }
+                    })
             })
     )
 });
 
 // Activate the SW
 self.addEventListener('activate', (event) => {
-    const cacheWhitelist = [];
-    cacheWhitelist.push(CACHE_NAME);
-
+    const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
         caches.keys().then((cacheNames) => Promise.all(
             cacheNames.map((cacheName) => {
-                if(!cacheWhitelist.includes(cacheName)) {
+                if (!cacheWhitelist.includes(cacheName)) {
                     return caches.delete(cacheName);
                 }
             })
         ))
-            
     )
 });

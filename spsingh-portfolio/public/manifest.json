@@ -3,18 +3,18 @@
     "name": "Shubham Pratap Singh Portfolio",
     "icons": [
         {
-            "src": "./media/logo.png",
+            "src": "/media/logo.png",
             "type": "image/png",
             "sizes": "512x512"
         },
         {
-            "src": "./media/logo.png",
+            "src": "/media/logo.png",
             "type": "image/png",
             "sizes": "1024x1024",
             "purpose": "any maskable"
         },
         {
-            "src": "./media/logo.png",
+            "src": "/media/logo.png",
             "type": "image/png",
             "sizes": "192x192"
         }

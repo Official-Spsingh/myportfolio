@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="./media/logo.png" />
+  <link rel="icon" type="image/png" href="/media/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0A0A0A" />
   <title>Shubham Pratap Singh Portfolio</title>
@@ -11,8 +11,8 @@
   <meta name="keywords"
     content="shubham pratap singh, shubham pratap singh rgpv, spsingh, full stack developer in bhopal, shubham pratap singh rgi, spsingh rgi, spsingh rgpv, full stack developer">
   <meta name="author" content="Shubham Pratap Singh">
-  <link rel="apple-touch-icon" href="./media/logo.png" />
-  <link rel="manifest" href="./manifest.json" />
+  <link rel="apple-touch-icon" href="/media/logo.png" />
+  <link rel="manifest" href="/manifest.json" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,11 +84,11 @@
 
 <body>
   <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
+  <script type="module" src="/src/index.tsx"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./serviceworker.js')
+        navigator.serviceWorker.register('/serviceworker.js')
           .then((reg) => console.log('Success: ', reg.scope))
           .catch((err) => console.log('Failure: ', err));
       })
