@@ -16,7 +16,7 @@ const SocialIcon = ({ href, children, label }: { href: string; children: React.R
     target="_blank"
     rel="noopener noreferrer"
     aria-label={label}
-    className="p-3 bg-slate-900 border border-slate-800 rounded-xl text-slate-400 hover:text-indigo-400 hover:border-indigo-500/50 hover:bg-slate-800 transition-all active:scale-95 flex items-center justify-center group"
+    className="p-3 bg-[#2a2a2a] border border-[#3d3d3d] rounded-xl text-zinc-400 hover:text-[#D97767] hover:border-[#D97767]/50 hover:bg-[#333] transition-all active:scale-95 flex items-center justify-center group"
   >
     <span className="w-6 h-6 flex items-center justify-center">
       {children}
@@ -127,13 +127,12 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-slate-200 selection:bg-indigo-500/30">
+    <div className="min-h-screen bg-[#0A0A0A] text-[#F5E8D8] selection:bg-[#D97767]/30">
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-slate-800/50 py-3' : 'bg-transparent py-5'}`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#3d3d3d]/50 py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-2xl font-bold tracking-tighter group">
-            <span className="text-indigo-500">sp</span>singh
-            <span className="inline-block w-1.5 h-1.5 bg-indigo-500 rounded-full ml-1 group-hover:animate-ping"></span>
+          <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-2xl md:text-3xl font-black tracking-tighter hover:text-[#D97767] transition-colors">
+            <span className="text-[#D97767]">sp</span>singh<span className="text-[#B5935B]">.</span>
           </a>
 
           {/* Desktop Nav */}
@@ -143,12 +142,12 @@ const App: React.FC = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-medium text-slate-400 hover:text-white transition-colors uppercase tracking-widest"
+                className="text-sm font-medium text-zinc-500 hover:text-white transition-colors uppercase tracking-widest"
               >
                 {link.name}
               </a>
             ))}
-            <div className="h-6 w-px bg-slate-800 mx-2"></div>
+            <div className="h-6 w-px bg-zinc-900 mx-2"></div>
             <div className="flex items-center space-x-3">
               <SocialIcon href={SOCIAL_LINKS.linkedin} label="LinkedIn"><LinkedInIcon /></SocialIcon>
               <SocialIcon href={SOCIAL_LINKS.github} label="GitHub"><GithubIcon /></SocialIcon>
@@ -156,7 +155,12 @@ const App: React.FC = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="md:hidden text-slate-300 p-2 hover:bg-slate-900 rounded-lg transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button
+            className="md:hidden text-zinc-400 p-2 hover:bg-[#2a2a2a] rounded-lg transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+            aria-expanded={isMenuOpen}
+          >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
@@ -169,14 +173,14 @@ const App: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-slate-950/98 backdrop-blur-xl flex flex-col items-center justify-center md:hidden"
+            className="fixed inset-0 z-40 bg-[#0A0A0A]/98 backdrop-blur-xl flex flex-col items-center justify-center md:hidden"
           >
             <div className="flex flex-col items-center space-y-8">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-3xl font-bold text-slate-400 hover:text-white transition-all transform hover:scale-110"
+                  className="text-3xl font-bold text-zinc-500 hover:text-white transition-all transform hover:scale-110"
                   onClick={(e) => handleNavClick(e, link.href)}
                 >
                   {link.name}
@@ -197,8 +201,8 @@ const App: React.FC = () => {
       <main>
         {/* Hero Section */}
         <section id="home" className="min-h-screen flex items-center pt-24 pb-12 px-6 relative overflow-hidden">
-          <div className="absolute top-1/4 right-0 w-64 md:w-96 h-64 md:h-96 bg-indigo-600/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse"></div>
-          <div className="absolute bottom-1/4 left-0 w-48 md:w-72 h-48 md:h-72 bg-purple-600/10 rounded-full blur-[60px] md:blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/4 right-0 w-64 md:w-96 h-64 md:h-96 bg-[#D97767]/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse"></div>
+          <div className="absolute bottom-1/4 left-0 w-48 md:w-72 h-48 md:h-72 bg-[#B5935B]/10 rounded-full blur-[60px] md:blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
 
           <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative">
             <motion.div
@@ -208,30 +212,30 @@ const App: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="z-10 text-center lg:text-left"
             >
-              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-mono text-xs font-semibold tracking-wider uppercase">
+              <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-[#D97767]/10 border border-[#D97767]/20 text-[#D97767] font-mono text-xs font-semibold tracking-wider uppercase">
                 Technical Lead & Full Stack Engineer
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black leading-tight mb-6 tracking-tight">
                 Shubham <br className="hidden sm:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-cyan-400 to-indigo-500">Pratap Singh</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D97767] via-[#B5935B] to-[#D97767] drop-shadow-[0_0_30px_rgba(255,111,97,0.2)]">Pratap Singh</span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-lg md:text-xl text-zinc-500 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
                 6+ years of mastery in MERN Stack. Architecting scalable digital ecosystems and leading high-performance engineering teams.
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-10">
-                <a href='tel:+91 7067350842' className="flex items-center justify-center space-x-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 rounded-xl font-bold transition-all shadow-xl shadow-indigo-600/25 group active:scale-95">
+                <a href='tel:+91 7067350842' className="flex items-center justify-center space-x-2 px-8 py-4 bg-gradient-to-r from-[#D97767] to-[#BC5D4E] hover:from-[#BC5D4E] hover:to-[#D97767] text-white rounded-xl font-bold transition-all shadow-xl shadow-[#D97767]/30 group active:scale-95">
                   <span>Let's Talk</span>
                   <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </a>
-                <a href={RESUME} download='Shubham Pratap Singh Resume' className="flex items-center justify-center space-x-2 px-8 py-4 bg-slate-900 border border-slate-800 hover:bg-slate-800 rounded-xl font-bold transition-all active:scale-95">
+                <a href={RESUME} download='Shubham Pratap Singh Resume' className="flex items-center justify-center space-x-2 px-8 py-4 bg-[#1a1a1a]/80 backdrop-blur-md border border-white/5 hover:bg-[#252525] rounded-xl font-bold transition-all active:scale-95 text-[#F5E8D8] shadow-lg">
                   <Download size={18} />
                   <span>Download CV</span>
                 </a>
               </div>
 
               <div className="flex items-center justify-center lg:justify-start space-x-3 sm:space-x-4">
-                <span className="hidden sm:inline-block text-sm font-bold text-slate-500 uppercase tracking-widest mr-2">Follow Me</span>
+                <span className="hidden sm:inline-block text-sm font-bold text-zinc-600 uppercase tracking-widest mr-2">Follow Me</span>
                 <SocialIcon href={SOCIAL_LINKS.linkedin} label="LinkedIn"><LinkedInIcon /></SocialIcon>
                 <SocialIcon href={SOCIAL_LINKS.github} label="GitHub"><GithubIcon /></SocialIcon>
                 <SocialIcon href={SOCIAL_LINKS.youtube} label="YouTube"><YoutubeIcon /></SocialIcon>
@@ -247,23 +251,23 @@ const App: React.FC = () => {
               className="relative flex justify-center lg:justify-end"
             >
               <div className="relative z-10 w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[450px]">
-                <div className="absolute inset-0 bg-indigo-500/20 rounded-[1.5rem] sm:rounded-[2.5rem] rotate-6 scale-105 blur-2xl -z-10"></div>
-                <div className="aspect-square rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border-4 border-slate-900 shadow-2xl relative">
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#D97767]/30 to-[#B5935B]/20 rounded-[1.5rem] sm:rounded-[2.5rem] rotate-6 scale-105 blur-3xl -z-10 group-hover:rotate-12 transition-transform duration-1000"></div>
+                <div className="aspect-square rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden border-4 border-[#1a1a1a] shadow-2xl relative">
                   <img
                     src={PROFILE_IMAGE}
                     alt="Shubham Pratap Singh"
                     className="w-full h-full object-cover transition-all duration-700 hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-indigo-500/10 mix-blend-overlay"></div>
+                  <div className="absolute inset-0 bg-[#D97767]/10 mix-blend-overlay"></div>
                 </div>
                 {/* Float tags */}
-                <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 p-4 sm:p-6 bg-slate-950/80 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-slate-800 shadow-xl hidden sm:block">
-                  <div className="text-xl sm:text-2xl font-bold text-indigo-400">6+ Years</div>
-                  <div className="text-[10px] sm:text-xs text-slate-500 uppercase font-bold tracking-widest">Industry Experience</div>
+                <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 p-4 sm:p-6 bg-[#0A0A0A]/90 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-[#3d3d3d] shadow-xl hidden sm:block">
+                  <div className="text-xl sm:text-2xl font-bold text-[#D97767]">6+ Years</div>
+                  <div className="text-[10px] sm:text-xs text-zinc-500 uppercase font-bold tracking-widest">Industry Experience</div>
                 </div>
-                <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 p-4 sm:p-6 bg-slate-950/80 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-slate-800 shadow-xl hidden sm:block">
-                  <div className="text-xl sm:text-2xl font-bold text-cyan-400">Lumenore</div>
-                  <div className="text-[10px] sm:text-xs text-slate-500 uppercase font-bold tracking-widest">Tech Lead</div>
+                <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 p-4 sm:p-6 bg-[#0A0A0A]/90 backdrop-blur-lg rounded-xl sm:rounded-2xl border border-[#3d3d3d] shadow-xl hidden sm:block">
+                  <div className="text-xl sm:text-2xl font-bold text-[#B5935B]">Lumenore</div>
+                  <div className="text-[10px] sm:text-xs text-zinc-500 uppercase font-bold tracking-widest">Tech Lead</div>
                 </div>
               </div>
             </motion.div>
@@ -271,11 +275,11 @@ const App: React.FC = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 md:py-24 px-6 bg-slate-900/30">
+        <section id="about" className="py-20 md:py-24 px-6 bg-[#2a2a2a]/40">
           <div className="container mx-auto max-w-5xl">
             <div className="flex flex-col items-center mb-12 md:mb-16 text-center">
-              <div className="h-1.5 w-12 bg-indigo-500 rounded-full mb-4"></div>
-              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.2em] text-slate-500">The Story So Far</h2>
+              <div className="h-1.5 w-12 bg-[#D97767] rounded-full mb-4"></div>
+              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.2em] text-[#B5935B]">The Story So Far</h2>
             </div>
 
             <motion.div
@@ -285,38 +289,38 @@ const App: React.FC = () => {
               className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start"
             >
               <div className="lg:col-span-3">
-                <p className="text-xl md:text-3xl text-slate-200 leading-relaxed font-medium mb-12">
-                  "Full Stack Engineer and Technical Lead with 6+ years of experience specializing in the <span className="text-indigo-400">MERN stack</span>. Skilled in React.js, Node.js, JavaScript, and modern web technologies. Proven expertise in designing <span className="text-cyan-400">scalable architectures</span>, leading teams, and building high-performance micro-frontend applications."
+                <p className="text-xl md:text-3xl text-[#F5E8D8] leading-relaxed font-medium mb-12">
+                  "Full Stack Engineer and Technical Lead with 6+ years of experience specializing in the <span className="text-[#D97767]">MERN stack</span>. Skilled in React.js, Node.js, JavaScript, and modern web technologies. Proven expertise in designing <span className="text-[#B5935B]">scalable architectures</span>, leading teams, and building high-performance micro-frontend applications."
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="text-slate-500 font-bold uppercase text-xs tracking-widest mb-3">Location</h4>
+                    <h4 className="text-zinc-500 font-bold uppercase text-xs tracking-widest mb-3">Location</h4>
                     <p className="text-lg font-bold">Bhopal, India</p>
                   </div>
                   <div>
-                    <h4 className="text-slate-500 font-bold uppercase text-xs tracking-widest mb-3">Specialty</h4>
+                    <h4 className="text-zinc-500 font-bold uppercase text-xs tracking-widest mb-3">Specialty</h4>
                     <p className="text-lg font-bold">MERN Stack & Micro Frontends</p>
                   </div>
                   <div>
-                    <h4 className="text-slate-500 font-bold uppercase text-xs tracking-widest mb-3">Leadership</h4>
+                    <h4 className="text-zinc-500 font-bold uppercase text-xs tracking-widest mb-3">Leadership</h4>
                     <p className="text-lg font-bold">Technical Team Lead</p>
                   </div>
                   <div>
-                    <h4 className="text-slate-500 font-bold uppercase text-xs tracking-widest mb-3">Interests</h4>
+                    <h4 className="text-zinc-500 font-bold uppercase text-xs tracking-widest mb-3">Interests</h4>
                     <p className="text-lg font-bold">System Design & AI</p>
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-2 space-y-6">
-                <div className="p-6 md:p-8 bg-slate-900/50 rounded-2xl md:rounded-3xl border border-slate-800 hover:border-cyan-500/30 transition-all">
-                  <div className="text-4xl md:text-5xl font-black text-cyan-500 mb-2">6+</div>
-                  <div className="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-widest">Years of Excellence</div>
+                <div className="p-6 md:p-8 bg-[#1a1a1a]/60 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/5 hover:border-[#D97767]/30 transition-all shadow-2xl">
+                  <div className="text-4xl md:text-5xl font-black text-[#D97767] mb-2 drop-shadow-[0_0_15px_rgba(255,111,97,0.3)]">6+</div>
+                  <div className="text-xs md:text-sm font-bold text-zinc-500 uppercase tracking-widest">Years of Excellence</div>
                 </div>
-                <div className="p-6 md:p-8 bg-slate-900/50 rounded-2xl md:rounded-3xl border border-slate-800 hover:border-indigo-500/30 transition-all">
-                  <div className="text-4xl md:text-5xl font-black text-indigo-500 mb-2">2+</div>
-                  <div className="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-widest">Enterprise-grade, AI Driven Products</div>
+                <div className="p-6 md:p-8 bg-[#1a1a1a]/60 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/5 hover:border-[#B5935B]/30 transition-all shadow-2xl">
+                  <div className="text-4xl md:text-5xl font-black text-[#B5935B] mb-2 drop-shadow-[0_0_15px_rgba(218,165,32,0.3)]">2+</div>
+                  <div className="text-xs md:text-sm font-bold text-zinc-500 uppercase tracking-widest">Enterprise-grade, AI Driven Products</div>
                 </div>
               </div>
             </motion.div>
@@ -330,12 +334,12 @@ const App: React.FC = () => {
               {/* Experience */}
               <div className="flex-[3]">
                 <div className="flex items-center space-x-4 mb-10 md:mb-12">
-                  <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-500">
+                  <div className="p-3 bg-[#D97767]/10 rounded-xl text-[#D97767]">
                     <Briefcase size={28} />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold">Professional Journey</h3>
                 </div>
-                <div className="space-y-12 border-l-2 border-slate-800 ml-4 pl-8 md:pl-10 relative">
+                <div className="space-y-12 border-l border-[#3d3d3d] ml-4 pl-8 md:pl-10 relative">
                   {CAREER_HISTORY.map((exp, idx) => (
                     <motion.div
                       key={idx}
@@ -345,11 +349,11 @@ const App: React.FC = () => {
                       transition={{ delay: idx * 0.1 }}
                       className="group relative"
                     >
-                      <div className="absolute -left-[41px] md:-left-[51px] top-1.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-slate-800 group-hover:border-indigo-500 transition-colors"></div>
-                      <div className="inline-block px-3 py-1 rounded bg-indigo-500/10 text-indigo-400 text-xs font-mono font-bold mb-3">{exp.period}</div>
-                      <h4 className="text-xl md:text-2xl font-bold text-slate-100 mb-1">{exp.role}</h4>
-                      <div className="text-base md:text-lg text-slate-400 font-medium mb-2">{exp.company}</div>
-                      <p className="text-xs md:text-sm text-slate-500 uppercase tracking-widest font-bold">{exp.department}</p>
+                      <div className="absolute -left-[37px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-[#0A0A0A] border border-[#3d3d3d] group-hover:border-[#D97767] transition-colors"></div>
+                      <div className="inline-block px-3 py-1 rounded bg-[#D97767]/10 text-[#D97767] text-xs font-mono font-bold mb-3">{exp.period}</div>
+                      <h4 className="text-xl md:text-2xl font-bold text-[#F5E8D8] mb-1">{exp.role}</h4>
+                      <div className="text-base md:text-lg text-zinc-500 font-medium mb-2">{exp.company}</div>
+                      <p className="text-xs md:text-sm text-zinc-600 uppercase tracking-widest font-bold">{exp.department}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -358,12 +362,12 @@ const App: React.FC = () => {
               {/* Education */}
               <div className="flex-[2]">
                 <div className="flex items-center space-x-4 mb-10 md:mb-12">
-                  <div className="p-3 bg-cyan-500/10 rounded-xl text-cyan-500">
+                  <div className="p-3 bg-[#B5935B]/5 rounded-xl text-[#B5935B]">
                     <GraduationCap size={28} />
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold">Academics</h3>
                 </div>
-                <div className="space-y-12 border-l-2 border-slate-800 ml-4 pl-8 md:pl-10 relative">
+                <div className="space-y-12 border-l border-[#3d3d3d] ml-4 pl-8 md:pl-10 relative">
                   {EDUCATION.map((edu, idx) => (
                     <motion.div
                       key={idx}
@@ -373,12 +377,12 @@ const App: React.FC = () => {
                       transition={{ delay: idx * 0.1 }}
                       className="group relative"
                     >
-                      <div className="absolute -left-[41px] md:-left-[51px] top-1.5 w-6 h-6 rounded-full bg-slate-950 border-4 border-slate-800 group-hover:border-cyan-500 transition-colors"></div>
-                      <div className="inline-block px-3 py-1 rounded bg-cyan-500/10 text-cyan-400 text-xs font-mono font-bold mb-3">{edu.period}</div>
-                      <h4 className="text-lg md:text-xl font-bold text-slate-100 mb-1">{edu.degree}</h4>
-                      <div className="text-slate-400 mb-1 text-sm md:text-base">{edu.institution}</div>
-                      <div className="text-xs md:text-sm text-slate-500 mb-3">{edu.location}</div>
-                      <div className="text-sm font-black text-indigo-400">{edu.score}</div>
+                      <div className="absolute -left-[37px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-[#0A0A0A] border border-[#3d3d3d] group-hover:border-[#B5935B] transition-colors"></div>
+                      <div className="inline-block px-3 py-1 rounded bg-[#B5935B]/5 text-[#B5935B] text-xs font-mono font-bold mb-3">{edu.period}</div>
+                      <h4 className="text-lg md:text-xl font-bold text-[#F5E8D8] mb-1">{edu.degree}</h4>
+                      <div className="text-zinc-500 mb-1 text-sm md:text-base">{edu.institution}</div>
+                      <div className="text-xs md:text-sm text-zinc-600 mb-3">{edu.location}</div>
+                      <div className="text-sm font-black text-[#D97767]">{edu.score}</div>
                     </motion.div>
                   ))}
                 </div>
@@ -388,38 +392,33 @@ const App: React.FC = () => {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-20 md:py-24 px-6 bg-slate-900/20">
+        <section id="skills" className="py-20 md:py-24 px-6 bg-[#0A0A0A]">
           <div className="container mx-auto">
             <div className="text-center mb-12 md:mb-20">
-              <h2 className="text-3xl md:text-4xl font-black mb-4">The <span className="text-indigo-500">Tech Stack</span></h2>
-              <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Skills categorized by domain expertise</p>
+              <h2 className="text-3xl md:text-4xl font-black mb-4">The <span className="text-[#D97767]">Tech Stack</span></h2>
+              <p className="text-zinc-500 font-bold uppercase tracking-widest text-xs">Skills categorized by domain expertise</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {SKILLS.map((cat, idx) => (
+              {SKILLS.map((category, idx) => (
                 <motion.div
-                  key={cat.title}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  key={category.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
-                  className="bg-slate-950/40 p-8 md:p-10 rounded-3xl md:rounded-[2.5rem] border border-slate-800/50 hover:border-indigo-500/40 transition-all group relative overflow-hidden"
+                  transition={{ delay: idx * 0.1 }}
+                  className="p-8 bg-[#1a1a1a] border border-[#3d3d3d] rounded-[2rem] hover:border-[#D97767]/30 transition-all group"
                 >
-                  <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                    {idx % 3 === 0 ? <Code2 size={60} /> : idx % 3 === 1 ? <Cpu size={60} /> : <Layers size={60} />}
-                  </div>
-                  <div className="relative z-10">
-                    <h3 className="text-base md:text-lg font-black uppercase tracking-[0.2em] text-indigo-400 mb-6 md:mb-8 flex items-center">
-                      <span className="w-6 md:w-8 h-px bg-indigo-500 mr-4"></span>
-                      {cat.title}
-                    </h3>
-                    <div className="flex flex-wrap gap-2 md:gap-2.5">
-                      {cat.skills.map(skill => (
-                        <span key={skill} className="px-3 py-1.5 md:px-4 md:py-2 bg-slate-900/80 rounded-lg md:rounded-xl text-xs md:text-sm font-semibold text-slate-300 border border-slate-800 hover:border-indigo-500/50 hover:text-white transition-all cursor-default">
-                          {skill}
-                        </span>
-                      ))}
+                  <div className="flex items-center space-x-4 mb-8">
+                    <div className="p-3 bg-[#D97767]/10 rounded-xl text-[#D97767] group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(255,111,97,0.1)]">
+                      {idx % 3 === 0 ? <Code2 size={24} /> : idx % 3 === 1 ? <Cpu size={24} /> : <Layers size={24} />}
                     </div>
+                    <h3 className="text-xl font-bold text-[#F5E8D8]">{category.title}</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map(skill => (
+                      <span key={skill} className="px-3 py-1.5 bg-white/[0.03] backdrop-blur-md border border-white/[0.05] rounded-lg text-xs font-bold text-zinc-400 group-hover:text-[#F5E8D8] group-hover:bg-[#D97767]/10 transition-all duration-300">{skill}</span>
+                    ))}
                   </div>
                 </motion.div>
               ))}
@@ -432,10 +431,10 @@ const App: React.FC = () => {
           <div className="container mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8">
               <div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6">Built to <span className="text-cyan-400">Scale</span></h2>
-                <p className="text-slate-400 max-w-xl text-base md:text-lg leading-relaxed font-medium italic">"A curated collection of projects where architecture meets performance and design."</p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6">Built to <span className="text-[#D97767]">Scale</span></h2>
+                <p className="text-zinc-500 max-w-xl text-base md:text-lg leading-relaxed font-medium italic">"A curated collection of projects where architecture meets performance and design."</p>
               </div>
-              <a href="https://github.com/Official-Spsingh?tab=repositories" target="_blank" className="flex items-center space-x-2 text-indigo-400 hover:text-indigo-300 font-black border-b-2 border-indigo-400/20 pb-2 transition-all group">
+              <a href="https://github.com/Official-Spsingh?tab=repositories" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-[#D97767] hover:text-[#BC5D4E] font-black border-b border-[#D97767]/20 pb-2 transition-all group">
                 <span>Explore Ecosystem</span>
                 <ExternalLink size={20} className="group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
               </a>
@@ -449,7 +448,7 @@ const App: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="group bg-slate-900/40 rounded-3xl md:rounded-[2.5rem] overflow-hidden border border-slate-800 hover:border-indigo-500/30 transition-all hover:shadow-2xl flex flex-col"
+                  className="group bg-[#2a2a2a] rounded-3xl overflow-hidden border border-[#3d3d3d] hover:border-[#D97767]/30 transition-all flex flex-col"
                 >
                   <div className="relative h-60 md:h-72 overflow-hidden">
                     <img
@@ -457,8 +456,8 @@ const App: React.FC = () => {
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[2px] flex items-center justify-center p-8">
-                      <a href={project.link} target="_blank" className="px-6 py-3 bg-white text-slate-950 rounded-xl font-bold flex items-center space-x-2 transform translate-y-4 group-hover:translate-y-0 transition-all">
+                    <div className="absolute inset-0 bg-[#0A0A0A]/60 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm flex items-center justify-center p-8">
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gradient-to-r from-[#F5E8D8] to-white text-[#0A0A0A] rounded-xl font-bold flex items-center space-x-2 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 shadow-2xl">
                         <span>Explore</span>
                         <ExternalLink size={18} />
                       </a>
@@ -467,16 +466,16 @@ const App: React.FC = () => {
                   <div className="p-8 md:p-10 flex-1 flex flex-col">
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map(tag => (
-                        <span key={tag} className="text-[10px] font-black uppercase tracking-widest text-indigo-400 py-1 px-3 bg-indigo-500/5 rounded-full border border-indigo-500/20">
+                        <span key={tag} className="text-[10px] font-black uppercase tracking-widest text-[#D97767] py-1 px-3 bg-[#D97767]/5 backdrop-blur-md rounded-full border border-[#D97767]/20">
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-black mb-3 md:mb-4 group-hover:text-indigo-400 transition-colors tracking-tight">{project.title}</h3>
-                    <p className="text-sm md:text-base text-slate-400 leading-relaxed mb-8 flex-1">{project.description}</p>
-                    <a href={project.link} target="_blank" className="flex items-center space-x-3 text-xs md:text-sm font-black text-slate-300 hover:text-white transition-all group/link uppercase tracking-widest">
+                    <h3 className="text-2xl md:text-3xl font-black mb-3 md:mb-4 group-hover:text-[#D97767] transition-colors tracking-tight">{project.title}</h3>
+                    <p className="text-sm md:text-base text-zinc-500 leading-relaxed mb-8 flex-1">{project.description}</p>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-xs md:text-sm font-black text-zinc-400 hover:text-[#F5E8D8] transition-all group/link uppercase tracking-widest">
                       <span>Explore</span>
-                      <ChevronRight size={18} className="group-hover/link:translate-x-2 transition-transform text-indigo-500" />
+                      <ChevronRight size={18} className="group-hover/link:translate-x-2 transition-transform text-[#D97767]" />
                     </a>
                   </div>
                 </motion.div>
@@ -486,44 +485,49 @@ const App: React.FC = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 md:py-24 px-4 sm:px-6 relative">
+        <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 relative overflow-hidden">
           <div className="container mx-auto max-w-6xl">
-            <div className="relative overflow-hidden bg-indigo-600 rounded-3xl sm:rounded-[3.5rem] p-1 shadow-2xl shadow-indigo-500/20 group">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-cyan-500 group-hover:rotate-180 transition-all duration-1000"></div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-[#D97767] rounded-3xl sm:rounded-[3.5rem] p-1 shadow-2xl shadow-[#D97767]/20 group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D97767] to-[#B5935B] group-hover:rotate-180 transition-all duration-1000"></div>
 
-              <div className="bg-slate-950 rounded-[1.4rem] sm:rounded-[3.4rem] p-6 sm:p-12 md:p-16 lg:p-20 relative z-10 overflow-hidden">
-                <div className="absolute -top-24 -right-24 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
+              <div className="bg-[#0A0A0A] rounded-[1.4rem] sm:rounded-[3.4rem] p-6 sm:p-12 md:p-16 lg:p-20 relative z-10 overflow-hidden">
+                <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#D97767]/5 rounded-full blur-3xl"></div>
 
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                   <div className="z-10 text-center lg:text-left">
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-none">Let's <br /><span className="text-indigo-500">Connect.</span></h2>
-                    <p className="text-slate-400 text-lg md:text-xl mb-10 leading-relaxed font-medium max-w-lg mx-auto lg:mx-0">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-none">Let's <br /><span className="text-[#B5935B]">Connect.</span></h2>
+                    <p className="text-zinc-500 text-lg md:text-xl mb-10 leading-relaxed font-medium max-w-lg mx-auto lg:mx-0">
                       Discussing product engineering, high-performance web systems, or leadership opportunities? Drop a message.
                     </p>
 
                     <div className="space-y-6 md:space-y-8 max-w-md mx-auto lg:mx-0">
                       <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-5 text-center sm:text-left">
-                        <div className="p-3 md:p-4 bg-slate-900 rounded-2xl text-indigo-400 border border-slate-800">
+                        <div className="p-3 md:p-4 bg-[#1a1a1a] rounded-2xl text-[#D97767] border border-[#3d3d3d]">
                           <Mail size={24} className="md:w-[26px] md:h-[26px]" />
                         </div>
                         <div>
-                          <div className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-black mb-1">Email Me</div>
-                          <a href="mailto:shubhampratpsingh@gmail.com" className="text-base sm:text-lg md:text-xl font-bold hover:text-indigo-400 transition-colors break-all">shubhampratpsingh@gmail.com</a>
+                          <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-black mb-1">Email Me</div>
+                          <a href="mailto:shubhampratpsingh@gmail.com" className="text-base sm:text-lg md:text-xl font-bold hover:text-[#D97767] transition-colors break-all">shubhampratpsingh@gmail.com</a>
                         </div>
                       </div>
                       <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-3 sm:space-y-0 sm:space-x-5 text-center sm:text-left">
-                        <div className="p-3 md:p-4 bg-slate-900 rounded-2xl text-cyan-400 border border-slate-800">
+                        <div className="p-3 md:p-4 bg-[#1a1a1a] rounded-2xl text-[#B5935B] border border-[#3d3d3d]">
                           <Phone size={24} className="md:w-[26px] md:h-[26px]" />
                         </div>
                         <div>
-                          <div className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-black mb-1">Call Me</div>
-                          <a href="tel:+91 7067350842" className="text-base sm:text-lg md:text-xl font-bold hover:text-cyan-400 transition-colors">+91-7067350842</a>
+                          <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-black mb-1">Call Me</div>
+                          <a href="tel:+91 7067350842" className="text-base sm:text-lg md:text-xl font-bold hover:text-[#D97767] transition-colors">+91-7067350842</a>
                         </div>
                       </div>
                     </div>
 
                     <div className="mt-12 md:mt-16 text-center lg:text-left">
-                      <div className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-black mb-6">Social Footprint</div>
+                      <div className="text-[10px] uppercase tracking-[0.3em] text-zinc-600 font-black mb-6">Social Footprint</div>
                       <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 sm:scale-110 sm:origin-left">
                         <SocialIcon href={SOCIAL_LINKS.linkedin} label="LinkedIn"><LinkedInIcon /></SocialIcon>
                         <SocialIcon href={SOCIAL_LINKS.github} label="GitHub"><GithubIcon /></SocialIcon>
@@ -534,22 +538,22 @@ const App: React.FC = () => {
                   </div>
 
                   <div className="relative z-10 w-full max-w-xl mx-auto">
-                    <form className="space-y-6 sm:space-y-8 bg-slate-900/30 p-6 sm:p-10 md:p-12 rounded-2xl sm:rounded-[2.5rem] border border-slate-800/50 backdrop-blur-sm shadow-xl" onSubmit={(e) => e.preventDefault()}>
+                    <form className="space-y-6 sm:space-y-8 bg-[#1a1a1a]/50 p-6 sm:p-10 md:p-12 rounded-2xl sm:rounded-[2.5rem] border border-[#D97767]/30 backdrop-blur-sm shadow-xl" onSubmit={(e) => e.preventDefault()}>
                       <div className="space-y-5 sm:space-y-6">
                         <div className="relative group/input">
-                          <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-indigo-400 transition-colors">Full Name</label>
-                          <input value={name} onChange={(e: any) => setname(e.target.value)} type="text" className="w-full bg-slate-900/50 border-2 border-slate-800 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-white text-sm sm:text-base focus:outline-none focus:border-indigo-500 transition-all font-semibold" placeholder="Shubham Pratap Singh" />
+                          <label className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">Full Name</label>
+                          <input value={name} onChange={(e: any) => setname(e.target.value)} type="text" className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold" placeholder="Shubham Pratap Singh" />
                         </div>
                         <div className="relative group/input">
-                          <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-indigo-400 transition-colors">E-mail</label>
-                          <input value={email} onChange={(e: any) => setemail(e.target.value)} type="email" className="w-full bg-slate-900/50 border-2 border-slate-800 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-white text-sm sm:text-base focus:outline-none focus:border-indigo-500 transition-all font-semibold" placeholder="shubham@example.com" />
+                          <label className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">E-mail</label>
+                          <input value={email} onChange={(e: any) => setemail(e.target.value)} type="email" className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold" placeholder="shubham@example.com" />
                         </div>
                         <div className="relative group/input">
-                          <label className="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-indigo-400 transition-colors">Message</label>
-                          <textarea value={msg} onChange={(e: any) => setmessage(e.target.value)} className="w-full bg-slate-900/50 border-2 border-slate-800 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-white text-sm sm:text-base focus:outline-none focus:border-indigo-500 transition-all font-semibold min-h-[120px] sm:min-h-[160px] resize-none" placeholder="Let's build something epic..."></textarea>
+                          <label className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">Message</label>
+                          <textarea value={msg} onChange={(e: any) => setmessage(e.target.value)} className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold min-h-[120px] sm:min-h-[160px] resize-none" placeholder="Let's build something epic..."></textarea>
                         </div>
                       </div>
-                      <button onClick={(loading || sent) ? () => { } : sendMessage} type="submit" className="w-full py-4 sm:py-5 bg-indigo-600 hover:bg-indigo-500 text-white font-black rounded-xl sm:rounded-2xl flex items-center justify-center space-x-3 transition-all active:scale-[0.98] shadow-2xl shadow-indigo-600/20 uppercase tracking-[0.2em] text-xs sm:text-sm">
+                      <button onClick={(loading || sent) ? () => { } : sendMessage} type="submit" className="w-full py-4 sm:py-5 bg-[#D97767] hover:bg-[#BC5D4E] text-white font-black rounded-xl sm:rounded-2xl flex items-center justify-center space-x-3 transition-all active:scale-[0.98] shadow-2xl shadow-[#D97767]/20 uppercase tracking-[0.2em] text-xs sm:text-sm">
                         <span>{loading ? 'Sending...' : sent ? 'Sent!' : 'Send Transmission'}</span>
                         <Send size={18} className="transform rotate-12" />
                       </button>
@@ -557,20 +561,20 @@ const App: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
       </main>
 
       {/* Footer */}
-      <footer className="py-12 md:py-16 px-6 relative border-t border-slate-900">
+      <footer className="py-12 md:py-16 px-6 relative border-t border-[#3d3d3d]">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-10">
             <div className="flex flex-col items-center md:items-start gap-4">
-              <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-2xl md:text-3xl font-black tracking-tighter hover:text-indigo-400 transition-colors">
-                <span className="text-indigo-500">sp</span>singh<span className="text-indigo-500">.</span>
+              <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-2xl md:text-3xl font-black tracking-tighter hover:text-[#D97767] transition-colors">
+                <span className="text-[#D97767]">sp</span>singh<span className="text-[#B5935B]">.</span>
               </a>
-              <p className="text-slate-500 text-[10px] md:text-sm font-bold max-w-xs text-center md:text-left uppercase tracking-widest">Architecting High Performance Systems.</p>
+              <p className="text-zinc-600 text-[10px] md:text-sm font-bold max-w-xs text-center md:text-left uppercase tracking-widest">Architecting High Performance Systems.</p>
             </div>
 
             <div className="flex flex-col items-center gap-6">
@@ -580,24 +584,24 @@ const App: React.FC = () => {
                 <SocialIcon href={SOCIAL_LINKS.youtube} label="YouTube"><YoutubeIcon /></SocialIcon>
                 <SocialIcon href={SOCIAL_LINKS.instagram} label="Instagram"><InstagramIcon /></SocialIcon>
               </div>
-              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-slate-500">
-                <a href="#" className="hover:text-indigo-400 transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-indigo-400 transition-colors">Terms & Conditions</a>
+              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-zinc-600">
+                <a href="#" className="hover:text-[#D97767] transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-[#D97767] transition-colors">Terms & Conditions</a>
               </div>
             </div>
 
             <div className="flex flex-col items-center md:items-end gap-2 text-center md:text-right">
-              <div className="text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-slate-600">&copy; {new Date().getFullYear()} SPSINGH</div>
-              <div className="flex items-center space-x-2 text-slate-400 text-xs md:text-sm font-bold">
+              <div className="text-[10px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-zinc-700">&copy; {new Date().getFullYear()} SPSINGH</div>
+              <div className="flex items-center space-x-2 text-zinc-500 text-xs md:text-sm font-bold">
                 <span>Handcrafted with</span>
-                <Heart size={16} className="text-red-500 fill-red-500 animate-pulse" />
+                <Heart size={16} className="text-[#D97767] fill-[#D97767] animate-pulse" />
                 <span>by Shubham</span>
               </div>
             </div>
           </div>
         </div>
       </footer>
-    </div>
+    </div >
   );
 };
 
