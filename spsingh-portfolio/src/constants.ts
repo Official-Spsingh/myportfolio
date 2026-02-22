@@ -13,6 +13,12 @@ export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/official_spsingh/"
 };
 
+export const CONTACT_INFO = {
+  phone: "+91-8109452048",
+  email: "shubhampratpsingh@gmail.com",
+  location: "Bhopal, India"
+};
+
 export const PROFILE_IMAGE = pImage;
 
 export const RESUME = SpPdf;
@@ -132,12 +138,12 @@ export const SKILLS: SkillCategory[] = [
 export const RESUME_DATA: ResumeData = {
   name: "Shubham Pratap Singh",
   contact: {
-    phone: "+91 8109452048",
-    email: "shubhampratpsingh@gmail.com",
+    phone: CONTACT_INFO.phone,
+    email: CONTACT_INFO.email,
     links: {
-      linkedin: "https://linkedin.com",
-      portfolio: "https://portfolio.com",
-      github: "https://github.com"
+      linkedin: SOCIAL_LINKS.linkedin,
+      portfolio: "https://spsingh.in/",
+      github: SOCIAL_LINKS.github
     }
   },
   summary: "Full Stack Engineer and Technical Lead with 6+ years of experience specializing in the MERN stack. Skilled in React.js, Node.js, JavaScript, and modern web technologies. Proven expertise in designing scalable architectures, leading teams, and building high-performance micro-frontend applications.",
