@@ -1,6 +1,6 @@
 
 import { Experience, Education, Project, SkillCategory, ResumeData } from './types';
-import pImage from './media/aboutimg1.jpeg';
+import pImage from './media/aboutimg2.jpeg';
 import SpPdf from './media/sps.pdf'
 import SimillimumPro from './media/SimillimumPro.png'
 import Iterion from './media/Iterion.png'

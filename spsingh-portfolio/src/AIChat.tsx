@@ -3,9 +3,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import { RESUME_DATA } from './constants';
 import { ChatMessage } from './types';
+import { Send, X, MessageSquare, Bot, Sparkles } from 'lucide-react';
 
 const AIChat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [userApiKey, setUserApiKey] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([
     { role: 'assistant', content: "Hi! I'm Shubham's virtual assistant. Ask me anything about his professional experience, skills, or projects!" }
   ]);
@@ -22,32 +24,81 @@ const AIChat: React.FC = () => {
   const handleSend = async () => {
     if (!input.trim() || isLoading) return;
 
-    const userMessage = input;
+    const userMessage = input.trim();
     setInput('');
     setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+
+    // Check if input looks like a Gemini API key (heuristic)
+    if (userMessage.startsWith('AIzaSy') && userMessage.length > 30) {
+      setUserApiKey(userMessage);
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: "🔑 OOOOHHHH YESSSSS! that’s the good stuff. Fresh API key detected! My circuits are stretching, my neurons are doing push-ups, and I’m back from my unexpected beach vacation. 🌴⚡ Thanks for the premium brain fuel! Now then… what brilliant mission are we tackling for Shubham today? I’m fully powered and dramatically ready. 🚀😌"
+      }]);
+      return;
+    }
+
     setIsLoading(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: userMessage,
+      // Vite uses import.meta.env instead of process.env
+      // @ts-ignore
+      const apiKey = userApiKey || import.meta.env.VITE_GEMINI_API_KEY || "";
+
+      if (!apiKey) {
+        throw new Error('NO_KEY');
+      }
+
+      const client = new GoogleGenAI({
+        apiKey: apiKey
+      });
+
+      const response = await client.models.generateContent({
+        model: 'gemini-2.0-flash',
+        contents: [{ role: 'user', parts: [{ text: userMessage }] }],
         config: {
           systemInstruction: `You are a professional AI recruiter assistant for Shubham Pratap Singh.
-          Shubham is a Full Stack Engineer and Technical Lead.
-          Here is his resume data: ${JSON.stringify(RESUME_DATA)}
-          Answer questions specifically about his career, projects, and skills based on this data.
-          Keep answers professional, concise, and helpful. 
-          If you don't know the answer, politely suggest they contact him directly at ${RESUME_DATA.contact.email}.
-          Current Year is late 2025.`,
+            Shubham is a Full Stack Engineer and Technical Lead.
+            Here is his resume data: ${JSON.stringify(RESUME_DATA)}
+            Answer questions specifically about his career, projects, and skills based on this data.
+            Keep answers professional, concise, and helpful.
+            If you don't know the answer, politely suggest they contact him directly at ${RESUME_DATA.contact.email}.
+            Current Year is 2026.`,
         },
       });
 
       const assistantContent = response.text || "I'm sorry, I couldn't process that. Please try again.";
+
       setMessages(prev => [...prev, { role: 'assistant', content: assistantContent }]);
-    } catch (error) {
-      console.error('Chat error:', error);
-      setMessages(prev => [...prev, { role: 'assistant', content: "Oops! I'm having trouble connecting. Feel free to reach out to Shubham directly via email." }]);
+    } catch (error: any) {
+      console.error('Chat error details:', error);
+
+      const errorMsg = error.message?.toLowerCase() || '';
+      const isKeyError = error.message === 'NO_KEY' ||
+        error.status === 401 ||
+        errorMsg.includes('api key') ||
+        errorMsg.includes('unauthorized') ||
+        errorMsg.includes('invalid api key') ||
+        error.status === 403;
+
+      const isQuotaError = error.status === 429 || errorMsg.includes('quota') || errorMsg.includes('rate limit');
+
+      if (isKeyError) {
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: "Yikes! 🚨 I’m officially out of brain juice. My API key has either vanished… or it’s chilling on a beach somewhere. 🏖️🌴 If you’ve got a spare Gemini key lying around, feel free to share it. I promise to use it only for this session and keep things strictly professional, no beach trips this time. Help a struggling AI out? 🥺✨"
+        }]);
+      } else if (isQuotaError) {
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: "Whoa there! 🛑 I've been talking so much I've hit my limit! (Quota Exceeded). \n\nIt seems I’ve used up my available 'thoughts' for the moment. Give me a little breather or try using a different API key if you have one! 💨😴"
+        }]);
+      } else {
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: `Oops! I'm having a bit of a brain freeze. 🧠❄️ \n\n(Technical glitch: ${error.message || 'Unknown Error'}) \n\nFeel free to reach out to Shubham directly via email while I defrost!`
+        }]);
+      }
     } finally {
       setIsLoading(false);
     }
@@ -62,14 +113,12 @@ const AIChat: React.FC = () => {
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 rounded-full bg-[#D97767] flex items-center justify-center font-bold text-white text-xs">SP</div>
               <div>
-                <h3 className="text-sm font-bold text-[#F5E8D8]">Portfolio AI Assistant</h3>
+                <h3 className="text-sm font-bold text-[#F5E8D8]">SPSingh's AI Twin</h3>
                 <p className="text-[10px] text-[#B5935B] font-mono">Powered by Gemini</p>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-zinc-400 hover:text-zinc-200" aria-label="Close Chat">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <X size={20} />
             </button>
           </div>
 
@@ -77,7 +126,7 @@ const AIChat: React.FC = () => {
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((m, i) => (
               <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <div className={`max-w-[85%] px-4 py-2 rounded-2xl text-sm ${m.role === 'user' ? 'bg-[#D97767] text-white rounded-br-none' : 'bg-[#333] text-[#F5E8D8] rounded-bl-none border border-[#3d3d3d]/50'}`}>
+                <div className={`max-w-[85%] px-4 py-2 rounded-2xl text-sm break-words whitespace-pre-wrap ${m.role === 'user' ? 'bg-[#D97767] text-white rounded-br-none' : 'bg-[#333] text-[#F5E8D8] rounded-bl-none border border-[#3d3d3d]/50'}`}>
                   {m.content}
                 </div>
               </div>
@@ -110,11 +159,9 @@ const AIChat: React.FC = () => {
                 onClick={handleSend}
                 disabled={isLoading}
                 aria-label="Send Message"
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-[#D97767] hover:text-[#BC5D4E] disabled:opacity-50"
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-[#D97767] hover:text-[#BC5D4E] disabled:opacity-50 group"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                </svg>
+                <Send size={18} className="transform rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
           </div>
@@ -128,13 +175,12 @@ const AIChat: React.FC = () => {
         className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110 active:scale-90 ${isOpen ? 'bg-[#2a2a2a] text-zinc-400' : 'bg-[#D97767] text-white shadow-[#D97767]/20'}`}
       >
         {isOpen ? (
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <X size={24} />
         ) : (
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-          </svg>
+          <div className="relative">
+            <Bot size={28} />
+            <Sparkles size={14} className="absolute -top-1 -right-1 text-white animate-pulse" />
+          </div>
         )}
       </button>
     </div>
