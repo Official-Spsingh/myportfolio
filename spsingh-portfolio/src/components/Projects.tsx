@@ -1,7 +1,75 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { ExternalLink, ChevronRight } from 'lucide-react';
 import { PROJECTS } from '../constants';
+
+const ProjectCard: React.FC<{ project: any; idx: number }> = ({ project, idx }) => {
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const rotateX = useTransform(y, [-100, 100], [10, -10]);
+    const rotateY = useTransform(x, [-100, 100], [-10, 10]);
+
+    function handleMouse(event: React.MouseEvent<HTMLDivElement>) {
+        const rect = event.currentTarget.getBoundingClientRect();
+        const middleX = rect.left + rect.width / 2;
+        const middleY = rect.top + rect.height / 2;
+        x.set(event.clientX - middleX);
+        y.set(event.clientY - middleY);
+    }
+
+    function handleMouseLeave() {
+        x.set(0);
+        y.set(0);
+    }
+
+    return (
+        <motion.div
+            layout
+            onMouseMove={handleMouse}
+            onMouseLeave={handleMouseLeave}
+            style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.4, delay: idx * 0.05 }}
+            className="group bg-[#2a2a2a] rounded-3xl overflow-hidden border border-[#3d3d3d] hover:border-[#D97767]/30 transition-all flex flex-col perspective-1000"
+        >
+            <div className="relative h-60 md:h-72 overflow-hidden" style={{ transform: 'translateZ(50px)' }}>
+                <img
+                    src={project.image}
+                    alt={project.title}
+                    width="600"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-[#0A0A0A]/60 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm flex items-center justify-center p-8">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gradient-to-r from-[#F5E8D8] to-white text-[#0A0A0A] rounded-xl font-bold flex items-center space-x-2 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 shadow-2xl">
+                        <span>Explore</span>
+                        <ExternalLink size={18} />
+                    </a>
+                </div>
+            </div>
+            <div className="p-8 md:p-10 flex-1 flex flex-col" style={{ transform: 'translateZ(30px)' }}>
+                <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag: any) => (
+                        <span key={tag} className="text-[10px] font-black uppercase tracking-widest text-[#D97767] py-1 px-3 bg-[#D97767]/5 backdrop-blur-md rounded-full border border-[#D97767]/20">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+                <h3 className="text-2xl md:text-3xl font-black mb-3 md:mb-4 group-hover:text-[#D97767] transition-colors tracking-tight">{project.title}</h3>
+                <p className="text-sm md:text-base text-zinc-400 leading-relaxed mb-8 flex-1">{project.description}</p>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-xs md:text-sm font-black text-zinc-400 hover:text-[#F5E8D8] transition-all group/link uppercase tracking-widest">
+                    <span>Explore</span>
+                    <ChevronRight size={18} className="group-hover/link:translate-x-2 transition-transform text-[#D97767]" />
+                </a>
+            </div>
+        </motion.div>
+    );
+};
 
 const Projects: React.FC = () => {
     const [filter, setFilter] = React.useState('All');
@@ -43,48 +111,7 @@ const Projects: React.FC = () => {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 transition-all">
                     <AnimatePresence mode="popLayout">
                         {filteredProjects.map((project, idx) => (
-                            <motion.div
-                                key={project.title}
-                                layout
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.4, delay: idx * 0.05 }}
-                                className="group bg-[#2a2a2a] rounded-3xl overflow-hidden border border-[#3d3d3d] hover:border-[#D97767]/30 transition-all flex flex-col"
-                            >
-                                <div className="relative h-60 md:h-72 overflow-hidden">
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        width="600"
-                                        height="400"
-                                        loading="lazy"
-                                        decoding="async"
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                    <div className="absolute inset-0 bg-[#0A0A0A]/60 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm flex items-center justify-center p-8">
-                                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gradient-to-r from-[#F5E8D8] to-white text-[#0A0A0A] rounded-xl font-bold flex items-center space-x-2 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 shadow-2xl">
-                                            <span>Explore</span>
-                                            <ExternalLink size={18} />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="p-8 md:p-10 flex-1 flex flex-col">
-                                    <div className="flex flex-wrap gap-2 mb-6">
-                                        {project.tags.map(tag => (
-                                            <span key={tag} className="text-[10px] font-black uppercase tracking-widest text-[#D97767] py-1 px-3 bg-[#D97767]/5 backdrop-blur-md rounded-full border border-[#D97767]/20">
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <h3 className="text-2xl md:text-3xl font-black mb-3 md:mb-4 group-hover:text-[#D97767] transition-colors tracking-tight">{project.title}</h3>
-                                    <p className="text-sm md:text-base text-zinc-400 leading-relaxed mb-8 flex-1">{project.description}</p>
-                                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-xs md:text-sm font-black text-zinc-400 hover:text-[#F5E8D8] transition-all group/link uppercase tracking-widest">
-                                        <span>Explore</span>
-                                        <ChevronRight size={18} className="group-hover/link:translate-x-2 transition-transform text-[#D97767]" />
-                                    </a>
-                                </div>
-                            </motion.div>
+                            <ProjectCard key={project.title} project={project} idx={idx} />
                         ))}
                     </AnimatePresence>
                 </div>

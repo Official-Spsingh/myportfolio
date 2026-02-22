@@ -53,11 +53,6 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, scrolled }) 
                                 {link.name}
                             </a>
                         ))}
-                        <div className="h-6 w-px bg-zinc-900 mx-2"></div>
-                        <div className="flex items-center space-x-3">
-                            <SocialIcon href={SOCIAL_LINKS.linkedin} label="LinkedIn"><LinkedInIcon /></SocialIcon>
-                            <SocialIcon href={SOCIAL_LINKS.github} label="GitHub"><GithubIcon /></SocialIcon>
-                        </div>
                     </div>
 
                     <button
@@ -92,12 +87,6 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, setIsMenuOpen, scrolled }) 
                             ))}
                         </div>
 
-                        <div className="mt-16 flex flex-wrap justify-center gap-4 px-6">
-                            <SocialIcon href={SOCIAL_LINKS.linkedin} label="LinkedIn"><LinkedInIcon /></SocialIcon>
-                            <SocialIcon href={SOCIAL_LINKS.github} label="GitHub"><GithubIcon /></SocialIcon>
-                            <SocialIcon href={SOCIAL_LINKS.youtube} label="YouTube"><YoutubeIcon /></SocialIcon>
-                            <SocialIcon href={SOCIAL_LINKS.instagram} label="Instagram"><InstagramIcon /></SocialIcon>
-                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

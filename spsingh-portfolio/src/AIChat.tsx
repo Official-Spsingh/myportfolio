@@ -1,9 +1,9 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
-import { RESUME_DATA } from './constants';
+import { RESUME_DATA, PROJECTS, RESUME } from './constants';
 import { ChatMessage } from './types';
-import { Send, X, MessageSquare, Bot, Sparkles } from 'lucide-react';
+import { Send, X, MessageSquare, Bot, Sparkles, Download } from 'lucide-react';
 
 const AIChat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,12 +21,61 @@ const AIChat: React.FC = () => {
     }
   }, [messages, isLoading]);
 
-  const handleSend = async () => {
-    if (!input.trim() || isLoading) return;
+  const quickActions = [
+    "What's his tech stack?",
+    "Show his key projects",
+    "How to contact him?",
+    "Download Resume"
+  ];
 
-    const userMessage = input.trim();
-    setInput('');
+  const getLocalResponse = (action: string): string => {
+    switch (action) {
+      case "What's his tech stack?":
+        return `Shubham is a MERN Stack specialist! 🚀\n\n• **Frontend**: ${RESUME_DATA.skills.programming.highVolume.join(', ')}\n• **Backend**: ${RESUME_DATA.skills.programming.standardVolume.slice(0, 3).join(', ')}\n• **Architecture**: Micro-frontends, Scalable Systems\n• **Cloud**: ${RESUME_DATA.skills.tools.slice(-3).join(', ')}`;
+      case "Show his key projects":
+        return `Here are some of Shubham's standout projects:\n\n${PROJECTS.map(p => `• **${p.title}**: ${p.description.substring(0, 80)}...`).join('\n')}\n\nYou can find more details in the Projects section!`;
+      case "How to contact him?":
+        return `You can reach Shubham directly at:\n\n📧 **Email**: ${RESUME_DATA.contact.email}\n📱 **Phone**: ${RESUME_DATA.contact.phone}\n📍 **Location**: Bhopal, India\n\nHe usually responds within 24 hours!`;
+      default:
+        return "";
+    }
+  };
+
+  const handleSend = async (customMessage?: string) => {
+    const userMessage = (customMessage || input).trim();
+    if (!userMessage || isLoading) return;
+
+    if (!customMessage) setInput('');
     setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+
+    // Check for Local Quick Actions
+    if (quickActions.includes(userMessage)) {
+      setIsLoading(true);
+      await new Promise(resolve => setTimeout(resolve, 600)); // Minimal aesthetic delay
+
+      if (userMessage === "Download Resume") {
+        const link = document.createElement('a');
+        link.href = RESUME;
+        link.download = `Shubham_Pratap_Singh_Resume.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: "Done! 📄 Your download should have started. I've sent you the latest version of Shubham's resume. Anything else you'd like to know?"
+        }]);
+        setIsLoading(false);
+        return;
+      }
+
+      const localResponse = getLocalResponse(userMessage);
+      if (localResponse) {
+        setMessages(prev => [...prev, { role: 'assistant', content: localResponse }]);
+        setIsLoading(false);
+        return;
+      }
+    }
 
     // Check if input looks like a Gemini API key (heuristic)
     if (userMessage.startsWith('AIzaSy') && userMessage.length > 30) {
@@ -41,18 +90,19 @@ const AIChat: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Vite uses import.meta.env instead of process.env
-      // @ts-ignore
-      const apiKey = userApiKey || import.meta.env.VITE_GEMINI_API_KEY || "";
+      // Simulate organic typing thinking time
+      await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 1000));
+
+      const apiKey = userApiKey || (import.meta as any).env.VITE_GEMINI_API_KEY || "";
 
       if (!apiKey) {
         throw new Error('NO_KEY');
       }
 
-      const client = new GoogleGenAI({
-        apiKey: apiKey
-      });
+      // @ts-ignore - The @google/genai SDK initialization
+      const client = new GoogleGenAI({ apiKey });
 
+      // @ts-ignore - The @google/genai generateContent pattern
       const response = await client.models.generateContent({
         model: 'gemini-2.0-flash',
         contents: [{ role: 'user', parts: [{ text: userMessage }] }],
@@ -144,6 +194,21 @@ const AIChat: React.FC = () => {
             )}
           </div>
 
+          {/* Quick Actions */}
+          {!isLoading && (
+            <div className="px-4 pb-2 pt-2 flex flex-wrap gap-2">
+              {quickActions.map(action => (
+                <button
+                  key={action}
+                  onClick={() => handleSend(action)}
+                  className="px-3 py-1.5 bg-[#1a1a1a] border border-[#3d3d3d] rounded-full text-[10px] font-bold text-zinc-400 hover:text-[#D97767] hover:border-[#D97767]/50 transition-all active:scale-95"
+                >
+                  {action}
+                </button>
+              ))}
+            </div>
+          )}
+
           {/* Input */}
           <div className="p-4 border-t border-[#D97767]/20 bg-[#0A0A0A]">
             <div className="relative">
@@ -156,7 +221,7 @@ const AIChat: React.FC = () => {
                 className="w-full bg-[#2a2a2a] border border-[#3d3d3d] rounded-full px-4 py-2 pr-12 text-sm text-[#F5E8D8] focus:outline-none focus:border-[#D97767] transition-colors"
               />
               <button
-                onClick={handleSend}
+                onClick={() => handleSend()}
                 disabled={isLoading}
                 aria-label="Send Message"
                 className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-[#D97767] hover:text-[#BC5D4E] disabled:opacity-50 group"

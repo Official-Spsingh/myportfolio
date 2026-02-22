@@ -10,13 +10,17 @@
   },
   "dependencies": {
     "@google/genai": "^1.42.0",
+    "@types/react-router-dom": "^5.3.3",
     "axios": "^1.13.2",
+    "canvas-confetti": "^1.9.4",
     "framer-motion": "^12.25.0",
     "lucide-react": "^0.562.0",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.13.0"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.24",

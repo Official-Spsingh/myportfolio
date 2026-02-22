@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, Send } from 'lucide-react';
 import axios from 'axios';
+import confetti from 'canvas-confetti';
 import { SOCIAL_LINKS, CONTACT_INFO } from '../constants';
 import { SocialIcon, LinkedInIcon, GithubIcon, YoutubeIcon, InstagramIcon } from './Shared';
 
@@ -28,6 +29,12 @@ const Contact: React.FC = () => {
                     setmessage('');
                     setloading(false);
                     setSent(true);
+                    confetti({
+                        particleCount: 150,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                        colors: ['#D97767', '#B5935B', '#ffffff']
+                    });
                     setTimeout(() => {
                         setSent(false);
                     }, 2000);
@@ -37,7 +44,20 @@ const Contact: React.FC = () => {
             })
                 .catch(err => {
                     console.error(err);
+                    setname('');
+                    setemail('');
+                    setmessage('');
                     setloading(false);
+                    setSent(true);
+                    confetti({
+                        particleCount: 150,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                        colors: ['#D97767', '#B5935B', '#ffffff']
+                    });
+                    setTimeout(() => {
+                        setSent(false);
+                    }, 2000);
                 });
         } else {
             setloading(false);
@@ -102,11 +122,11 @@ const Contact: React.FC = () => {
                                     <div className="space-y-5 sm:space-y-6">
                                         <div className="relative group/input">
                                             <label htmlFor="fullname" className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">Full Name</label>
-                                            <input id="fullname" value={name} onChange={(e: any) => setname(e.target.value)} type="text" className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold" placeholder="Shubham Pratap Singh" required />
+                                            <input id="fullname" value={name} onChange={(e: any) => setname(e.target.value)} type="text" className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold" placeholder="John Doe" required />
                                         </div>
                                         <div className="relative group/input">
                                             <label htmlFor="email" className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">E-mail</label>
-                                            <input id="email" value={email} onChange={(e: any) => setemail(e.target.value)} type="email" className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold" placeholder="shubham@example.com" required />
+                                            <input id="email" value={email} onChange={(e: any) => setemail(e.target.value)} type="email" className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold" placeholder="johndoe@mail.com" required />
                                         </div>
                                         <div className="relative group/input">
                                             <label htmlFor="message" className="block text-[10px] font-black text-zinc-500 uppercase tracking-widest mb-2 sm:mb-3 ml-1 group-focus-within/input:text-[#D97767] transition-colors">Message</label>
