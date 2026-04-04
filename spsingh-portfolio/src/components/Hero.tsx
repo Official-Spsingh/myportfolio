@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
 
                     <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-10">
                         <Magnetic>
-                            <a href={`tel:${CONTACT_INFO.phone}`} className="flex items-center justify-center space-x-2 px-8 py-4 bg-gradient-to-r from-[#D97767] to-[#BC5D4E] hover:from-[#BC5D4E] hover:to-[#D97767] text-white rounded-xl font-bold transition-all shadow-xl shadow-[#D97767]/30 group active:scale-95">
+                            <a href={`tel:${CONTACT_INFO.phone}`} className="flex items-center justify-center space-x-2 px-8 py-4 bg-gradient-to-r from-[#D97767] to-[#BC5D4E] hover:from-[#BC5D4E] hover:to-[#D97767] text-white rounded-xl font-bold transition-all shadow-md shadow-[#D97767]/20 group active:scale-95">
                                 <span>Let's Talk</span>
                                 <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
                             </a>

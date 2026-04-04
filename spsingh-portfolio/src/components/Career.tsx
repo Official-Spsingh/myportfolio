@@ -4,24 +4,37 @@ import { Briefcase, GraduationCap } from 'lucide-react';
 import { CAREER_HISTORY, EDUCATION } from '../constants';
 
 const Career: React.FC = () => {
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
+    const experienceRef = useRef<HTMLDivElement>(null);
+    const educationRef = useRef<HTMLDivElement>(null);
+
+    const { scrollYProgress: expScrollY } = useScroll({
+        target: experienceRef,
         offset: ["start center", "end center"]
     });
 
-    const scaleY = useSpring(scrollYProgress, {
+    const { scrollYProgress: eduScrollY } = useScroll({
+        target: educationRef,
+        offset: ["start center", "end center"]
+    });
+
+    const scaleYExperience = useSpring(expScrollY, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    const scaleYEducation = useSpring(eduScrollY, {
         stiffness: 100,
         damping: 30,
         restDelta: 0.001
     });
 
     return (
-        <section id="career" ref={sectionRef} className="py-20 md:py-24 px-6 relative">
+        <section id="career" className="py-20 md:py-24 px-6 relative">
             <div className="container mx-auto">
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
                     {/* Experience Column */}
-                    <div className="flex-[3]">
+                    <div className="flex-[3]" ref={experienceRef}>
                         <div className="flex items-center space-x-4 mb-10 md:mb-12">
                             <div className="p-3 bg-[#D97767]/10 rounded-xl text-[#D97767]">
                                 <Briefcase size={28} />
@@ -32,7 +45,7 @@ const Career: React.FC = () => {
                             {/* Vertical Progress Line */}
                             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#3d3d3d]/30 overflow-hidden">
                                 <motion.div
-                                    style={{ scaleY, originY: 0 }}
+                                    style={{ scaleY: scaleYExperience, originY: 0 }}
                                     className="absolute inset-0 w-full bg-gradient-to-b from-[#D97767] to-[#BC5D4E] shadow-[0_0_15px_rgba(217,119,103,0.3)]"
                                 />
                             </div>
@@ -57,7 +70,7 @@ const Career: React.FC = () => {
                     </div>
 
                     {/* Education Column */}
-                    <div className="flex-[2]">
+                    <div className="flex-[2]" ref={educationRef}>
                         <div className="flex items-center space-x-4 mb-10 md:mb-12">
                             <div className="p-3 bg-[#B5935B]/5 rounded-xl text-[#B5935B]">
                                 <GraduationCap size={28} />
@@ -68,7 +81,7 @@ const Career: React.FC = () => {
                             {/* Vertical Progress Line */}
                             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#3d3d3d]/30 overflow-hidden">
                                 <motion.div
-                                    style={{ scaleY, originY: 0 }}
+                                    style={{ scaleY: scaleYEducation, originY: 0 }}
                                     className="absolute inset-0 w-full bg-gradient-to-b from-[#B5935B] to-[#9A7D4D] shadow-[0_0_15px_rgba(181,147,91,0.2)]"
                                 />
                             </div>

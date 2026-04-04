@@ -22,8 +22,8 @@ const Contact: React.FC = () => {
                 "email": email,
                 "message": msg
             };
-            axios.post('https://spsinghapi.herokuapp.com/addData', obj).then(res => {
-                if (res.status === 200) {
+            axios.post('https://shimmering-alignment-production-2b7b.up.railway.app/send-email', obj).then(res => {
+                if (res.status === 200 || res.status === 201) {
                     setname('');
                     setemail('');
                     setmessage('');
@@ -37,27 +37,16 @@ const Contact: React.FC = () => {
                     });
                     setTimeout(() => {
                         setSent(false);
-                    }, 2000);
+                    }, 3000);
                 } else {
                     setloading(false);
+                    alert("Failed to send message. Please try again later.");
                 }
             })
                 .catch(err => {
-                    console.error(err);
-                    setname('');
-                    setemail('');
-                    setmessage('');
+                    console.error('Email API Error:', err);
                     setloading(false);
-                    setSent(true);
-                    confetti({
-                        particleCount: 150,
-                        spread: 70,
-                        origin: { y: 0.6 },
-                        colors: ['#D97767', '#B5935B', '#ffffff']
-                    });
-                    setTimeout(() => {
-                        setSent(false);
-                    }, 2000);
+                    alert("An error occurred while sending the message. Please check your connection or try again later.");
                 });
         } else {
             setloading(false);
@@ -133,7 +122,7 @@ const Contact: React.FC = () => {
                                             <textarea id="message" value={msg} onChange={(e: any) => setmessage(e.target.value)} className="w-full bg-[#0A0A0A] border border-[#D97767]/20 rounded-xl sm:rounded-2xl py-3 sm:py-4 px-5 sm:px-6 text-[#F5E8D8] text-sm sm:text-base focus:outline-none focus:border-[#D97767] transition-all font-semibold min-h-[120px] sm:min-h-[160px] resize-none" placeholder="Let's build something epic..." required></textarea>
                                         </div>
                                     </div>
-                                    <button disabled={loading || sent} type="submit" className="w-full py-4 sm:py-5 bg-[#D97767] hover:bg-[#BC5D4E] text-white font-black rounded-xl sm:rounded-2xl flex items-center justify-center space-x-3 transition-all active:scale-[0.98] shadow-2xl shadow-[#D97767]/20 uppercase tracking-[0.2em] text-xs sm:text-sm">
+                                    <button disabled={loading || sent} type="submit" className="w-full py-4 sm:py-5 bg-[#D97767] hover:bg-[#BC5D4E] text-white font-black rounded-xl sm:rounded-2xl flex items-center justify-center space-x-3 transition-all active:scale-[0.98] shadow-lg shadow-[#D97767]/10 uppercase tracking-[0.2em] text-xs sm:text-sm">
                                         <span>{loading ? 'Sending...' : sent ? 'Sent!' : 'Send Transmission'}</span>
                                         <Send size={18} className="transform rotate-12" />
                                     </button>

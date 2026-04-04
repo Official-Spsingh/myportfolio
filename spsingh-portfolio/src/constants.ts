@@ -131,7 +131,7 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     title: "Soft Skills",
-    skills: ["Team work", "Adaptability", "Problem Solving", "Communication", "Leadership"]
+    skills: ["Problem Solving", "Communication", "Team work", "Adaptability", "Leadership"]
   }
 ];
 
@@ -142,7 +142,7 @@ export const RESUME_DATA: ResumeData = {
     email: CONTACT_INFO.email,
     links: {
       linkedin: SOCIAL_LINKS.linkedin,
-      portfolio: "https://spsingh.in/",
+      portfolio: "https://officialspsingh-c9206.firebaseapp.com/",
       github: SOCIAL_LINKS.github
     }
   },

@@ -46,8 +46,8 @@ const ProjectCard: React.FC<{ project: any; idx: number }> = ({ project, idx }) 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-[#0A0A0A]/60 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm flex items-center justify-center p-8">
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gradient-to-r from-[#F5E8D8] to-white text-[#0A0A0A] rounded-xl font-bold flex items-center space-x-2 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 shadow-2xl">
-                        <span>Explore</span>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gradient-to-r from-[#F5E8D8] to-white text-[#0A0A0A] rounded-xl font-bold flex items-center space-x-2 transform translate-y-8 group-hover:translate-y-0 transition-all duration-500 shadow-lg">
+                        <span>{project.link.includes('github.com') ? 'Explore Repo' : 'Explore'}</span>
                         <ExternalLink size={18} />
                     </a>
                 </div>
@@ -63,7 +63,7 @@ const ProjectCard: React.FC<{ project: any; idx: number }> = ({ project, idx }) 
                 <h3 className="text-2xl md:text-3xl font-black mb-3 md:mb-4 group-hover:text-[#D97767] transition-colors tracking-tight">{project.title}</h3>
                 <p className="text-sm md:text-base text-zinc-400 leading-relaxed mb-8 flex-1">{project.description}</p>
                 <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 text-xs md:text-sm font-black text-zinc-400 hover:text-[#F5E8D8] transition-all group/link uppercase tracking-widest">
-                    <span>Explore</span>
+                    <span>{project.link.includes('github.com') ? 'Explore Repo' : 'Explore'}</span>
                     <ChevronRight size={18} className="group-hover/link:translate-x-2 transition-transform text-[#D97767]" />
                 </a>
             </div>
