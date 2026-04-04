@@ -104,7 +104,7 @@ const Skills: React.FC = () => {
     };
 
     return (
-        <section id="skills" className="py-20 md:py-24 px-6 bg-[#0A0A0A]">
+        <section id="skills" className="py-20 md:py-24 px-6 bg-[#2a2a2a]/40">
             <div className="container mx-auto">
                 <div className="text-center mb-16 md:mb-24">
                     <h2 className="text-3xl md:text-5xl font-black mb-6">Mastery <span className="text-[#D97767]">Radar</span></h2>
